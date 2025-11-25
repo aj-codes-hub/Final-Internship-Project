@@ -24,13 +24,14 @@ const Home:React.FC = () => {
           <TrendingSection />
       </div>
 
+      <StageComicsCardSection />
+
        <NewComics />
   
       <div className="mt-15">
         <MostRead />
       </div>
-
-      <StageComicsCardSection />
+      
 
        <AuthorHeroSection />
        <TopAuthorSection />

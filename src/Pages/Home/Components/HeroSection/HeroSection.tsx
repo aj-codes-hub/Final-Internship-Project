@@ -4,6 +4,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Card1 from './Card1'
 import Card2 from './Card2'
 import Card3 from './Card3'
+import CircleShadow from '../../../../Components/layout/CircleShadow'
 
 interface Slide {
   id: number;
@@ -63,6 +64,7 @@ const HeroSection: React.FC = () => {
       className="w-full max-w-[1950px] mx-auto flex flex-col items-center justify-center relative"
       style={{ height: `${1000 * scale}px` }}
     >
+      <CircleShadow className="left-20"/>
 
       <div 
         className="absolute bottom-2 z-50 flex"
@@ -141,9 +143,18 @@ const HeroSection: React.FC = () => {
                   >
                     <img 
                       src={slide.AnimeImg}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover "
                       alt={`Slide ${slide.id}`}
                     />
+                
+                    <div className="h-[115px] w-[115px] z-[70] absolute rounded-full flex
+                                    justify-center items-center bg-[#33d6ff50]
+                    ">
+                      <div className="h-[80px] w-[80px] bg-[#33D6FF] rounded-full justify-center items-center flex">  
+                        <img src="/Icons/PlayVideo.png" alt="" />
+                      </div>
+                    </div>
+
                   </div>
                </div>
                

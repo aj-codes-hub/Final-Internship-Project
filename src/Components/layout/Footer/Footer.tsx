@@ -1,16 +1,20 @@
 import React from 'react'
 import FooterInfoSection from './FooterInfoSection/FooterInfoSection'
 import FooterLinksSection from './FooterLinksSection/footerLinksSection'
+import CircleShadow from '../CircleShadow'
+
 
 const Footer:React.FC = () => {
   return (
-    <div className='w-full max-w-[1950px] mx-auto'>
+    <div className='w-full max-w-[1950px] mx-auto relative'>
      
      <FooterInfoSection />
-
      <FooterLinksSection />
+      
+    <CircleShadow className='top-0 right-0'/>
 
-
+    <CircleShadow className='bottom-24 left-70'/>      
+ 
         <div id='copyRight' 
              className='bg-[#33D6FF] w-full flex items-center justify-center font-semibold
                          text-[#040914]   2xl:h-[50px] 
