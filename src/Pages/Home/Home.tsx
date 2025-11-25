@@ -23,15 +23,22 @@ const Home:React.FC = () => {
           <ArtworkScroll />
           <TrendingSection />
       </div>
+<<<<<<< HEAD
 
       <StageComicsCardSection />
 
+=======
+        <StageComicsCardSection />
+>>>>>>> edaf23b7ae3c5ad15be1a3ba2546057c0185def6
        <NewComics />
   
       <div className="mt-15">
         <MostRead />
       </div>
+<<<<<<< HEAD
       
+=======
+>>>>>>> edaf23b7ae3c5ad15be1a3ba2546057c0185def6
 
        <AuthorHeroSection />
        <TopAuthorSection />
