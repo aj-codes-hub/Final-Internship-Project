@@ -146,15 +146,6 @@ const HeroSection: React.FC = () => {
                       className="w-full h-full object-cover "
                       alt={`Slide ${slide.id}`}
                     />
-                
-                    <div className="h-[115px] w-[115px] z-[70] absolute rounded-full flex
-                                    justify-center items-center bg-[#33d6ff50]
-                    ">
-                      <div className="h-[80px] w-[80px] bg-[#33D6FF] rounded-full justify-center items-center flex">  
-                        <img src="/Icons/PlayVideo.png" alt="" />
-                      </div>
-                    </div>
-
                   </div>
                </div>
                
