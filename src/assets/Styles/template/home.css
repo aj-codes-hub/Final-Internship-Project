@@ -1,0 +1,7 @@
+p{
+    @apply font-thin text-gray-100 text-[.95rem];
+}
+
+h5{
+    @apply font-semibold text-[1.2rem] mt-3;
+}
