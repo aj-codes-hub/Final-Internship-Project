@@ -27,16 +27,15 @@ const Home:React.FC = () => {
       <StageComicsCardSection />
 
        <NewComics />
-  
       <div className="mt-15">
         <MostRead />
       </div>
-      
+     
+
 
        <AuthorHeroSection />
-       <TopAuthorSection />
-
-      <Footer />
+       <TopAuthorSection /> 
+      <Footer /> 
     </div>
   )
 }
