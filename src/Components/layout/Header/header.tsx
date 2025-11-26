@@ -34,7 +34,7 @@ const Header:React.FC = () => {
   return (
     <div className={`flex w-full md:left-1/2 md:-translate-x-1/2 max-w-[1950px] h-[100px] md:h-[66px] z-[50] fixed
                      items-center px-[24px] md:px-[40px] lg:px-[70px] py-2 transform duration-500 ${
-                     isSticky ? "top-0 bg-black" : "top-[23px] bg-transparent"
+                     isSticky ? "top-0 bg-black" : "md:top-[23px] top-[3px] bg-transparent"
                      }`}>
 
       <img src="/Logo/header-Logo.png"

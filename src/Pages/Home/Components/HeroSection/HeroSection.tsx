@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
       >
         <button 
           onClick={next} 
-          className="bg-black text-[#33D6FF] flex rounded-full border border-white justify-center items-center"
+          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center"
           style={{
             width: `${80 * scale}px`,
             height: `${80 * scale}px`
@@ -83,7 +83,7 @@ const HeroSection: React.FC = () => {
 
         <button 
           onClick={prev} 
-          className="bg-black text-[#33D6FF] flex rounded-full border border-white justify-center items-center"
+          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center"
           style={{
             width: `${80 * scale}px`,
             height: `${80 * scale}px`
