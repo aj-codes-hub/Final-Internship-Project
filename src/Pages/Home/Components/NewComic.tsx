@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../../../Components/layout/Container";
 import ComicCard from "../../../Components/layout/ComicCard";
+import CircleShadow from "../../../Components/layout/CircleShadow";
 
 const comics = [
   {
@@ -58,34 +59,19 @@ const comics = [
 
 const NewComics: React.FC = () => {
   return (
-    <Container className="py-10 text-white relative overflow-visible">
+    <div className="max-w-[1920px] mx-auto">
+    <Container className=" text-white relative overflow-visible max-w-[1170px] xl:h-[1277px] h-auto mx-auto">
       
-      {/* Top-right Bubble */}
-      <div
-        className="
-          absolute
-          w-[298px] h-[288px]
-          top-0
-          -right-40
-          -translate-x-1/4 -translate-y-1/4
-          rounded-full
-          blur-[160px]
-          z-0
-        "
-        style={{
-          background:
-            "linear-gradient(119.99deg, rgba(51,214,255,0.5) 21.9%, rgba(207,245,255,0.5) 125.17%)",
-        }}
-      />
+      <CircleShadow className="top-[-10%] right-[-42%]" />  
 
       {/* Heading + Button */}
-      <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4 md:gap-0 relative z-10">
-        <h2 className="font-semibold text-[50px] leading-[100%] capitalize">
+      <div className="xl:w-full w-[90%] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4 md:gap-0 relative z-10">
+        <h2 className="font-semibold text-[50px] leading-[100%] capitalize md:mx-0 mx-auto text-center md:mb-0 mb-5">
           New To Stagecomics
         </h2>
         <button
           className="w-[270px] h-[65px] bg-[#33D6FF] rounded-[40px] 
-                     flex items-center justify-center
+                     flex items-center justify-center md:mx-0 mx-auto
                      font-['Exo_2'] font-semibold text-[22px] leading-[100%] 
                      text-[#040914]"
         >
@@ -109,6 +95,7 @@ const NewComics: React.FC = () => {
         ))}
       </div>
     </Container>
+    </div>
   );
 };
 

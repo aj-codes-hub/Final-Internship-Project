@@ -7,7 +7,7 @@ className?: string
 
 const Container:React.FC<ContainerProps> = ({children , className=''}) => {
   return (
-   <div className={`w-full  lg:px-[75px] md:px-[45px] px-[30px] ${className}`}>
+   <div className={`w-full ${className}`}>
      {children}
    </div>
   )

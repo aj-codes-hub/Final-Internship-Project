@@ -10,6 +10,7 @@ import drama from "../../../assets/images/drama.png";
 
 import leftChar from "../../../assets/images/char-left-1.png";
 import rightChar from "../../../assets/images/char-right-1.png";
+import CircleShadow from "../../../Components/layout/CircleShadow";
 
 interface CategoryItem {
   label: string;
@@ -27,25 +28,25 @@ const categories: CategoryItem[] = [
 
 const CategorySection: React.FC = () => {
   return (
-<section className="relative w-full h-[950px] bg-[#030A1A] overflow-hidden text-white py-36 px-6">
+<section className="relative w-full max-w-[1920px] mx-auto md:h-[950px] h-auto text-white py-36 mb-40">
 
-      {/* BLUR ORBS */}
-      
-      <div className="absolute top-40 left-[169px] w-[273px] h-[208px] bg-gradient-to-br from-cyan-400/50 to-blue-100/50 blur-[197px] rounded-full rotate-[177.74deg]"></div>
-      <div className="absolute bottom-40 left-[1422px] w-[273px] h-[288px] bg-gradient-to-br from-cyan-400/50 to-blue-100/50 blur-[197px] rounded-full rotate-[177.74deg]"></div>
 
-      <div className="relative z-10 scale-[0.85] origin-top">
+    <CircleShadow  className="top-[22%] left-[15%]"/>
+
+    <CircleShadow  className="top-[58%] left-[77%]"/>
+
+      <div className="relative z-10 origin-top  max-w-[1160px] w-full mx-auto">
 
         {/* SIDE CHAR IMAGES */}
         <img
           src={leftChar}
           alt="left"
-          className="hidden md:block absolute left-[179px] top-[1%] w-[267px] h-[185px] rounded-[120px] object-cover shadow-xl"
+          className="hidden lg:block absolute left-0 top-[1%] w-[267px] h-[185px] rounded-[120px] object-cover shadow-xl"
         />
         <img
           src={rightChar}
           alt="right"
-          className="hidden md:block absolute right-[179px] top-[1%] w-[267px] h-[185px] rounded-[120px] object-cover shadow-xl"
+          className="hidden lg:block absolute right-0 top-[1%] w-[267px] h-[185px] rounded-[120px] object-cover shadow-xl"
         />
 
         {/* HEADER TEXT */}
@@ -54,7 +55,7 @@ const CategorySection: React.FC = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="opacity-70 text-[24px] font-normal leading-none"
+            className="opacity-70 text-[24px] font-thin leading-none"
           >
             How can we help
           </motion.h3>
@@ -63,7 +64,7 @@ const CategorySection: React.FC = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="mt-3 text-[32px] md:text-[32px] font-medium leading-[42px]"
+            className="mt-4 text-[32px] md:text-[32px] font-medium leading-[42px]"
           >
             Create, Explore & Read <br />
             Your Favorite Novel and Comic <br />
@@ -72,7 +73,14 @@ const CategorySection: React.FC = () => {
         </div>
 
         {/* CATEGORY CARDS */}
-        <div className="mt-16 mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-[1170px]">
+        <div className="mt-16 justify-between max-w-[1170px]
+                       grid
+                       grid-cols-1 
+                       sm:grid-cols-3 
+                       md:grid-cols-4
+                       lg:md:grid-cols-6
+                       xl:md:grid-cols-6
+        ">
           {categories.map((c, i) => (
             <motion.div
               key={i}
@@ -81,7 +89,13 @@ const CategorySection: React.FC = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="w-[178px] h-[260px] bg-white/7 rounded-[16px] flex flex-col items-center justify-start p-4 hover:bg-white/20 transition cursor-pointer shadow-lg relative"
+              className="mx-auto lg:h-[260px] bg-white/7 rounded-[16px] mt-2 flex flex-col items-center justify-start p-4 hover:bg-white/20 transition cursor-pointer shadow-lg relative
+                         w-[90%] 
+                         sm:w-[80%] 
+                         md:w-[90%] 
+                         lg:w-[90%] 
+                         xl:w-[178px] 
+              "
             >
               <motion.img
                 src={c.img}

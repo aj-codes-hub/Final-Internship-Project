@@ -61,40 +61,13 @@ const HeroSection: React.FC = () => {
 
   return (
     <div 
-      className="w-full max-w-[1950px] mx-auto flex flex-col items-center justify-center relative"
+      className="w-full max-w-[1950px] mx-auto flex flex-col items-center justify-center relative mt-[100px]"
       style={{ height: `${1000 * scale}px` }}
     >
       <CircleShadow className="left-20"/>
 
       <div 
-        className="absolute bottom-2 z-50 flex"
-        style={{ gap: `${45 * scale}px` }}
-      >
-        <button 
-          onClick={next} 
-          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center"
-          style={{
-            width: `${80 * scale}px`,
-            height: `${80 * scale}px`
-          }}
-        >
-          <FaChevronLeft size={16 * scale} />        
-        </button>
-
-        <button 
-          onClick={prev} 
-          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center"
-          style={{
-            width: `${80 * scale}px`,
-            height: `${80 * scale}px`
-          }}
-        >
-          <FaChevronRight size={16 * scale} />
-        </button>
-      </div>
-
-      <div 
-        className="relative w-[100%] overflow-hidden flex items-center justify-center"
+        className="relative w-[100%] overflow-hidden flex items-center justify-center "
         style={{ 
           height: `${800 * scale}px`,
           perspective: `${1200 * scale}px`
@@ -117,7 +90,7 @@ const HeroSection: React.FC = () => {
               rotateY: getRotationY(index),
             }}
             transition={{ duration: 0.6 }}
-            className="absolute shadow-2xl flex items-end justify-center text-3xl font-bold"
+            className="absolute shadow-2xl flex items-end justify-center text-3xl font-bold "
             style={{
               width: `${1170 * scale}px`,
               height: `${749 * scale}px`,
@@ -141,11 +114,24 @@ const HeroSection: React.FC = () => {
                       top: `${-64 * scale}px`
                     }}
                   >
+                    <div className={`bg-[#33d6ff46] rounded-full z-30 absolute flex items-center justify-center 
+                                      h-[85px] w-[85px] 
+                                      md:h-[95px] md:w-[95px] 
+                                      lg:h-[105px] lg:w-[105px]
+                                      xl:h-[115px] xl:w-[115px]
+                                     ${isLeftSlide(index) ? 'hidden' : 'block'} ${isRightSlide(index) ? 'hidden' : 'block'} `}>
+
+                      <div className="h-[70%] w-[70%] bg-[#33D6FF] rounded-full flex items-center justify-center">
+                        <img src="/Icons/PlayVideo.png"/>
+                      </div>
+                    </div>
+
                     <img 
                       src={slide.AnimeImg}
-                      className="w-full h-full object-cover "
+                      className="w-full h-full object-cover z-20 "
                       alt={`Slide ${slide.id}`}
                     />
+                    
                   </div>
                </div>
                
@@ -154,6 +140,34 @@ const HeroSection: React.FC = () => {
 
           </motion.div>
         ))}
+      </div>
+       <div 
+        className="flex mt-[1.5vh]"
+        style={{ gap: `${45 * scale}px` }}
+      >
+        <button 
+          onClick={next} 
+          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center
+                    hover:bg-[#33d6ff21] hover:scale-105 transform duration-200"
+          style={{
+            width: `${80 * scale}px`,
+            height: `${80 * scale}px`
+          }}
+        >
+          <FaChevronLeft size={16 * scale} />        
+        </button>
+
+        <button 
+          onClick={prev} 
+          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center
+                    hover:bg-[#33d6ff21] hover:scale-105 transform duration-200"
+          style={{
+            width: `${80 * scale}px`,
+            height: `${80 * scale}px`
+          }}
+        >
+          <FaChevronRight size={16 * scale} />
+        </button>
       </div>
     </div>
   );

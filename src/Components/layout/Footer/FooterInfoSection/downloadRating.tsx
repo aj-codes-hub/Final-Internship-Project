@@ -31,7 +31,7 @@ const RateFromApps = [
   ];
   return (
   
-      <div className='gap-[20px] flex md:flex-row flex-col md:items-end'>
+      <div className='gap-[20px] flex md:flex-row flex-col md:items-end mr-[46px]'>
                        
            
 

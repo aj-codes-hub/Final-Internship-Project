@@ -61,8 +61,8 @@ const authors = [
 
 const TopAuthorsSection : React.FC= () => {
   return (
-    <section className="w-full bg-[#0B0E16] py-16">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <section className="xl:w-full w-[90%] mx-auto bg-[#0B0E16] mt-[100px] md:mb-[200px] mb-[50px]">
+      <div className="md:max-w-[1170px] mx-auto ">
         
         
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 sm:mb-10 lg:mb-12">
@@ -76,11 +76,11 @@ const TopAuthorsSection : React.FC= () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-4 gap-6 sm:gap-5 lg:gap-6">
           {authors.map((author) => (
             <div
               key={author.id}
-              className="bg-[#11141D] rounded-lg overflow-hidden hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
+              className="bg-[#11141D] md:rounded-lg rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
             >
               <div className="flex gap-2 w-full">
                 <img

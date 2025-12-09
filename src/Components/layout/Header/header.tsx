@@ -39,7 +39,7 @@ const Header:React.FC = () => {
 
       <img src="/Logo/header-Logo.png"
            alt="logo" 
-           className='w-[134px] pr-2 md:w-[164px] xl:w-[184px] h-[12px] md:h-[18px]'
+           className='w-[134px] pr-2 md:w-[164px] xl:w-[184px] h-[12px] md:h-[18px]  xl:h-[18px]'
       />
       
       <Navbar className='text-[.9rem] hidden md:flex

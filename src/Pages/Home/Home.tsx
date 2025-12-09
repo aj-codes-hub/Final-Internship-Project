@@ -4,7 +4,6 @@ import Footer from '../../Components/layout/Footer/Footer'
 import HeroSection from './Components/HeroSection/HeroSection'
 import StageComicsCardSection from './Components/StageComicsCardSection/StageComicsCardSection'
 import CategorySection from './Components/CategorySection'
-import ArtworkScroll from './Components/ArtworkScroll'
 import TrendingSection from './Components/TrendingSection'
 import NewComics from './Components/NewComic';
 import MostRead from './Components/MostRead';
@@ -14,26 +13,17 @@ import TopAuthorSection from './Components/TopAuthorSections'
 
 const Home:React.FC = () => {
   return (
-    <div>
+    <div  className='max-w-[1920px] w-full mx-auto overflow-hidden'>
       <Header />
-      <HeroSection />
+       <HeroSection />
+        <CategorySection />
+         <TrendingSection />
 
-      <div className="max-w-[1920px] mx-auto px-4">
-          <CategorySection />
-          <ArtworkScroll />
-          <TrendingSection />
-      </div>
-
-      <StageComicsCardSection />
-
-       <NewComics />
-      <div className="mt-15">
-        <MostRead />
-      </div>
-     
-
-
-       <AuthorHeroSection />
+           <StageComicsCardSection />
+           <NewComics />
+         
+         <MostRead />
+        <AuthorHeroSection />
        <TopAuthorSection /> 
       <Footer /> 
     </div>
