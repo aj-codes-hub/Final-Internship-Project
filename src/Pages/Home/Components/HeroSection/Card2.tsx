@@ -109,10 +109,10 @@ return (
                    ">
 
                      <Button title="Read Now"
-                             className="border border-[#33D6FF] text-[#33D6FF] font-light"
+                             className="border border-[#33D6FF] text-[#33D6FF] font-light text-[8px]"
                      />
                      <Button title="Get Premium"
-                             className="bg-[#FEB705] text-black font-light"
+                             className="bg-[#FEB705] text-black font-light text-[8px]"
                      />
 
                    </div>

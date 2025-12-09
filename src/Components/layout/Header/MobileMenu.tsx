@@ -19,13 +19,13 @@ const MobileMenu:React.FC<MobileMenuPrpos> = ({className}) => {
       />
 
     </div>
-        <Navbar className='my-10 text-[24px] flex-col gap-8 '/>
+        <Navbar className='mt-10 mb-2 text-[24px] flex-col gap-6 '/>
 
-         <hr className='my-10 mr-8' />
+         <hr className='my-5 mr-8' />
 
-        <div className='flex flex-col gap-4 w-[80%]'>
+        <div className='flex flex-col gap-4 w-[90%]'>
            <Button title='Sign In'
-                className='border bg-[#33D6FF] text-[#212A4D] font-bold'
+                className='border bg-[#33D6FF] text-[#212A4D] font-bold' 
           />
       </div>
      </div>
