@@ -6,7 +6,12 @@ import MobileMenu from './MobileMenu'
 import { IoClose } from "react-icons/io5";
 import SearchToggle from './SearchBar'
 
-const Header:React.FC = () => {
+interface HeaderProps{
+  onClick?:() => void;
+}
+
+
+const Header:React.FC<HeaderProps> = ({onClick}) => {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -60,15 +65,15 @@ const Header:React.FC = () => {
         <SearchToggle/>
         <Button title='Sign In'
                 className='border bg-[#33D6FF] text-[#212A4D] font-bold hidden md:block'
+                onClick={onClick}
         />
       </div>
 
       <button onClick={handleMenuOpen} className='md:hidden ml-auto block'>
-          
           {IsShow ? <IoClose size={40}/> : <LuMenu size={30}/>}
       </button>
 
-     <MobileMenu className={`${IsShow ? "w-[80%] px-6" : "w-0"}`}/>
+     <MobileMenu onClick={onClick} className={`${IsShow ? "w-[80%] px-6" : "w-0"}`}/>
      
 
     </div>

@@ -1,13 +1,14 @@
 import React from 'react'
-import Button from '../Button'
+import Button from '../../layout/Button'
 import Navbar from './navbar'
 ;
 
 interface MobileMenuPrpos {
     className?:string
+    onClick?:() => void
 }
 
-const MobileMenu:React.FC<MobileMenuPrpos> = ({className}) => {
+const MobileMenu:React.FC<MobileMenuPrpos> = ({className , onClick}) => {
 
   return (
      <div className={`bg-black overflow-hidden flex flex-col h-full transform duration-300 fixed top-0 left-0 ${className}`}>
@@ -25,7 +26,8 @@ const MobileMenu:React.FC<MobileMenuPrpos> = ({className}) => {
 
         <div className='flex flex-col gap-4 w-[90%]'>
            <Button title='Sign In'
-                className='border bg-[#33D6FF] text-[#212A4D] font-bold' 
+                className='border bg-[#33D6FF] text-[#212A4D] font-bold'
+                onClick={onClick} 
           />
       </div>
      </div>
