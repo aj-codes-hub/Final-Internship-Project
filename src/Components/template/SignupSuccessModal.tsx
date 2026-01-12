@@ -14,7 +14,7 @@ const SignupSuccessModal: React.FC<SignupSuccessModalProps> = ({
     if (isOpen) {
       const timer = setTimeout(() => {
         onClose();
-      }, 100000);
+      }, 2000);
 
       return () => clearTimeout(timer);
     }
@@ -29,7 +29,7 @@ const SignupSuccessModal: React.FC<SignupSuccessModalProps> = ({
     
           <div className='flex justify-center items-center min-h-screen p-4 relative z-50'>
             <div className='bg-[#1D212B] relative flex gap-4 transform transition-all rounded-[20px]'>
-              <div className='flex sm:h-[334px] h-[334px] sm:w-[284px] w-[284px] items-center justify-center'>
+              <div className='flex sm:h-[334px] h-[284px] sm:w-[334px] w-[284px] items-center justify-center'>
 
                   <img src="Images/LikeThumb.png"
                   className='h-[120px] w-[120px] '/>
