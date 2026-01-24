@@ -47,7 +47,7 @@ const CardData = [
          <div  key={index}
                className='w-full rounded-[20px] bg-[#0F141E] p-[16px] flex sm:flex-row flex-col gap-[16px] sm:h-[204px]'>
         
-          <div className='rounded-[20px] sm:w-[220px] w-full h-[140px] sm:h-full overflow-hidden'>
+          <div className='rounded-[20px] sm:w-[220px] w-full h-[180px] sm:h-full overflow-hidden'>
            <img src="Images/GirlWithWings.jpg"
                 className='h-full w-full scale-110' />
           </div>

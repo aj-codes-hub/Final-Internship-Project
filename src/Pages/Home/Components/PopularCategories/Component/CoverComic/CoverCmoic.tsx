@@ -51,7 +51,7 @@ const CoverComic: React.FC = () => {
   };
 
   return (
-    <div className='lg:h-[488px] mt-[134px] rounded-[20px] overflow-hidden relative'>
+    <div className='lg:h-[488px] mt-[134px] xl:rounded-[20px] overflow-hidden relative'>
       
       {/* ✅ DYNAMIC BACKGROUND IMAGE */}
       <img 

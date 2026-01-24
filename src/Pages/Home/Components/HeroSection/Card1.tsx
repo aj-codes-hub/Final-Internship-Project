@@ -1,41 +1,35 @@
 import React from 'react'
 import Button from '../../../../Components/layout/Button'
+import { useNavigate } from 'react-router-dom'
+import { ComicData } from '../../../../ComicData'
+
+
+
+
 
 const Card1:React.FC = () => {
-const CardContant = [
-    {
-      CardName: "Teenage Mercenary",
-      CardDetails: "At the age of eight, Ijin Yu lost his parents in a plane crash and became stranded in a foreign land, forced to become a child mercenary in order to stay alive. He returns home ten years later to be reunited with his family in Korea, where food and shelter are plenty and everything seems peaceful. But Ijin will soon learn that life as a teenager is a whole other feat of survival......",
-      characterImg: "./Images/Anime2.jpg",
-       StarRate: [
-        "/Icons/starFill.png",
-        "/Icons/starFill.png",
-        "/Icons/starFill.png",
-        "/Icons/starFill.png",
-        "/Icons/starFill.png",
-      ],
-    },
-]
 
+const navigate = useNavigate();
+
+const handleNavigateTo = () =>{
+  navigate('/Comic');
+}
 
 
   return (
-        <>
-            {CardContant.map((item, index)=>(
-
-             
-                   <div key={index} 
-                        className="w-[55%] h-[88%] flex mx-auto my-auto 
-                                   flex-col justify-between px-[30px]">
+        <>     
+           <div 
+                className="w-[55%] h-[88%] flex mx-auto my-auto 
+                                   flex-col justify-between pl-[30px] pr-[73px]">
                                   
                   <h1 className="text-[15px]
                                  sm:text-[19px]
                                  md:text-[20px]
                                  lg:text-[22px]
                                  xl:text-[24px]
-                                 2xl:text-[26px]
+                                 2xl:text-[36px] 
                   ">
-                    {item.CardName}
+                    {ComicData.title}
                   </h1>
                     
                   
@@ -46,9 +40,9 @@ const CardContant = [
                                         xl:gap-[6px]
                                         2xl:gap-[7px]
                         ">
-                     {item.StarRate.map((star,i) => (       
-                        <img key={i} 
-                             src={star} 
+                       {ComicData.StarRating.map((item,index) =>(
+                        <img key={index}
+                             src={item} 
                              className='w-[12px]         h-[12px]
                                         md:w-[12px]      md:h-[12px]
                                         lg:w-[13px]      lg:h-[13px]
@@ -56,7 +50,8 @@ const CardContant = [
                                         2xl:w-[20px]     2xl:h-[20px]
 
                              '/> 
-                        ))}       
+                       ))}
+                        
                        <span className="text-[8px]      ml-[7px]
                                         md:text-[10px]   md:ml-[8px]
                                         lg:text-[16px]   lg:ml-[6px]
@@ -69,7 +64,7 @@ const CardContant = [
                   
                   
 
-                  <div className="w-[60%] sm:w-[95%]">
+                  <div className="w-[60%] sm:w-[95%] opacity-[60%]">
                     <p className="text-[8px]       leading-[12px]  
                                  sm:text-[10px]   sm:leading-[14px]  
                                  md:text-[11px]   md:leading-[14px]
@@ -77,7 +72,7 @@ const CardContant = [
                                   xl:text-[16px]   xl:leading-[24px]
                                   2xl:text-[20px]  2xl:leading-[34px]
                     ">
-                        {item.CardDetails}
+                       {ComicData.description}
                     </p>
                   </div>
 
@@ -97,7 +92,7 @@ const CardContant = [
                                   2xl:h-[54px] 2xl:w-[54px] 
                   
                   ">
-                     <img src={item.characterImg} className='scale-125'/>
+                     <img src={ComicData.authorImage} className='scale-125'/>
                   </div>
 
                    <div className="gap-[6px] flex
@@ -109,6 +104,7 @@ const CardContant = [
                    ">
 
                      <Button title="Read Now"
+                             onClick={handleNavigateTo}
                              className="border border-[#33D6FF] text-[#33D6FF] font-light text-[8px]"
                      />
                      <Button title="Get Premium"
@@ -118,7 +114,6 @@ const CardContant = [
                    </div>
 
                </div>
-        ))}
    </>            
   )
 }

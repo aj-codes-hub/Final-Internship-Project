@@ -13,7 +13,7 @@ const SearchComponent: React.FC = () => {
   );
 
   return (
-    <div className="flex gap-[10px]">
+    <div className="flex gap-[10px] cursor-pointer">
 
       <div
         className={`transition-all w-full h-18 duration-300 absolute bg-gradient-to-b from-[#40444a73] to-[#04091400] left-0 top-16 ${
@@ -45,7 +45,7 @@ const SearchComponent: React.FC = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:p-[12px] xl:p-[18px] p-[14px] bg-[#FFFFFF1A] rounded-full"
+        className="md:p-[12px] xl:p-[18px] cursor-pointer p-[14px] bg-[#FFFFFF1A] rounded-full"
       >
         {isOpen ? <RxCross1 className="md:text-[18px] xl:text-[22px] text-[11px] sm:text-[14] text-white" /> 
                 : <LuSearch className="md:text-[18px] xl:text-[22px] text-[11px] sm:text-[14] text-white" />}

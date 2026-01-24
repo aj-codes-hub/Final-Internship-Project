@@ -1,16 +1,29 @@
 import React from 'react'
-import './index.css'
-import Home from "./Pages/Home/Home"
-
+import {BrowserRouter, Routes , Route} from 'react-router-dom'
+import './index.css';
+import Home from "./Pages/Home/Home";
+import CmmicFullEP from './Pages/ComicHere/ComicPage';
+import Footer from './Components/layout/Footer/Footer';
+import HeaderAndNav from './Pages/HeaderAndNav';
+import ReadComic from './Pages/ReadComic/ReadComic';
+import ScrollToTop from './hooks/NotScrolled';
 
 
 const App:React.FC = () => {
 
 
   return (
-    <>
-     <Home /> 
-    </>
+
+    <BrowserRouter>
+      <HeaderAndNav/>
+      <ScrollToTop />
+        <Routes>
+          <Route path='/' element={<Home /> } />
+          <Route path="/Comic" element={<CmmicFullEP /> } />
+          <Route path="/ReadComic/:episodeId" element={<ReadComic />} />
+        </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

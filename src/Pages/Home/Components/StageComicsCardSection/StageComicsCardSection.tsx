@@ -187,7 +187,7 @@ const StageComicsCardSection: React.FC = () => {
             >
               <button 
                 onClick={prev} 
-                className="text-[#D3F85A] flex rounded-full border border-white justify-center items-center
+                className="text-[#D3F85A] flex rounded-full border border-white justify-center cursor-pointer items-center
                          hover:bg-[#d3f85a20] hover:scale-105 transform duration-200"
                 style={{
                   width: `${responsiveValues.buttonSize}px`,
@@ -199,7 +199,7 @@ const StageComicsCardSection: React.FC = () => {
 
               <button 
                 onClick={next} 
-                className="text-[#D3F85A] flex rounded-full border border-white justify-center items-center
+                className="text-[#D3F85A] flex rounded-full border border-white justify-center cursor-pointer items-center
                           hover:bg-[#d3f85a20] hover:scale-105 transform duration-200"
                 style={{
                   width: `${responsiveValues.buttonSize}px`,

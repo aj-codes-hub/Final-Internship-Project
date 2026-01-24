@@ -147,7 +147,7 @@ const HeroSection: React.FC = () => {
       >
         <button 
           onClick={next} 
-          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center
+          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center cursor-pointer
                     hover:bg-[#33d6ff21] hover:scale-105 transform duration-200"
           style={{
             width: `${80 * scale}px`,
@@ -159,7 +159,7 @@ const HeroSection: React.FC = () => {
 
         <button 
           onClick={prev} 
-          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center
+          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center cursor-pointer
                     hover:bg-[#33d6ff21] hover:scale-105 transform duration-200"
           style={{
             width: `${80 * scale}px`,

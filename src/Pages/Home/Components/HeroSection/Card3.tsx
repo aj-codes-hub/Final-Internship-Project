@@ -33,7 +33,7 @@ const CardContant = [
                                  md:text-[20px]
                                  lg:text-[22px]
                                  xl:text-[24px]
-                                 2xl:text-[26px]
+                                 2xl:text-[36px]
                   ">
                     {item.CardName}
                   </h1>
@@ -69,7 +69,7 @@ const CardContant = [
                   
                   
 
-                  <div className="w-[60%] sm:w-[95%]">
+                  <div className="w-[60%] sm:w-[95%] opacity-[60%]">
                     <p className="text-[8px]       leading-[12px]  
                                  sm:text-[10px]   sm:leading-[14px]  
                                  md:text-[11px]   md:leading-[14px]
