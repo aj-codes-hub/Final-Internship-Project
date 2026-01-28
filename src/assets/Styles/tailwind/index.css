@@ -31,7 +31,9 @@
 	body {
 		@apply text-[#E7F6FE] bg-[#040914];
 		-webkit-font-smoothing: antialiased;
+		scroll-behavior: smooth
 	}
+
 
 	h1,
 	.h1 {

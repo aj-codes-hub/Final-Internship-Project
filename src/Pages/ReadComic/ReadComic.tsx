@@ -95,7 +95,7 @@ const ReadComic: React.FC = () => {
             alt="PDF Background"
           />
           <div className='h-[90%] w-[90%] z-[40] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
-            <h1 className='text-[50px] font-bold text-center mt-[30px] text-black bg-white/20 backdrop-blur-2xl'>
+            <h1 className='md:text-[50px] sm:text-[40px] text-[30px] font-bold text-center mt-[30px] text-black bg-white/20 backdrop-blur-2xl'>
               PDF EPISODE : {currentEpisode.episodeNumber}
             </h1>
           </div>
@@ -157,9 +157,11 @@ const ReadComic: React.FC = () => {
       <div className={`bg-[#1D212B] lg:h-[101px] h-auto w-full transform duration-300 z-[999] bottom-0 ${ScreenSize ? "fixed": "sticky"}`}>
         
         <div className='max-w-[1920px] mx-auto h-full xl:px-[120px] lg:px-[100px] md:px-[60px] px-[20px] py-[20px]'>
-          <div className='flex justify-between'>
+          
+          <div className='lg:flex-row flex-col flex justify-between'>
+            
             {/* LEFT SECTION */}
-            <div className='lg:flex gap-[12px] hidden'>
+            <div className='flex gap-[12px]'>
               {/* THUMBNAIL */}
               <div className='h-[60px] w-[60px] rounded-[10px] overflow-hidden'>
                 <img 
@@ -169,7 +171,7 @@ const ReadComic: React.FC = () => {
               </div>
               
               {/* EPISODE INFO */}
-              <div className='flex flex-col justify-center gap-[4px] border-r xl:w-[340px] xl:p-0 px-[10px] border-[#5C6272] h-[44px] my-auto'>
+              <div className='flex flex-col justify-center gap-[4px] lg:border-r xl:w-[340px] lg:w-[280px] md:w-[280px] xl:p-0 px-[10px] border-[#5C6272] h-[44px] my-auto'>
                 <p className='text-[16px]'>
                   Episode {currentEpisode.episodeNumber}
                 </p>
@@ -181,15 +183,17 @@ const ReadComic: React.FC = () => {
                   <span>{currentEpisode.commentsQuantity} comments</span>
                 </div>
               </div>
-               
-              <div className='ml-[32px]'>
+            </div>
+             
+             <div className='flex w-full'>
+
+             <div className='lg:ml-[32px] mx-auto lg:mx-0'>
                 <BtnWithIcon 
                   title="More"
                   className='gap-[8px] h-full text-[#5C6272]' 
                   icon={<FiMoreVertical className='text-[24px]'/>}
                 />
               </div>
-            </div>
 
             {/* LIKE BUTTON */}
             <BtnWithIcon 
@@ -203,10 +207,12 @@ const ReadComic: React.FC = () => {
               }
             />
 
+             </div>
+
             {/* RIGHT SECTION */}
-            <div className='flex'>
+            <div className='flex justify-between'>
               {/* LIST/COMMENT TABS */}
-              <div className='sm:flex gap-[9px] hidden '>   
+              <div className='flex gap-[9px]'>   
                 <div className={`rounded-[10px] h-[70px] ${isActive === 'list' ? "bg-[#303645] w-[70px]" : ""}`}>
                   <BtnWithIcon 
                     onClick={() => setIsActive('list')}
@@ -226,10 +232,10 @@ const ReadComic: React.FC = () => {
                 </div>
               </div>  
 
-              <div className='h-[46px] w-[1px] bg-[#5C6272] my-auto mx-[24px]'/>
+              <div className='h-[46px] w-[1px] bg-[#5C6272] my-auto md:mx-[24px] mx-[6px]'/>
 
               {/* PREV/NEXT BUTTONS */}
-              <div className='flex gap-[44px]'>   
+              <div className='flex md:gap-[44px] gap-[30px]'>   
                 <div className={`rounded-[10px] h-[70px] ${isPrevDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`}>
                   <BtnWithIcon 
                     title="Prev" 
@@ -251,7 +257,7 @@ const ReadComic: React.FC = () => {
                 </div>
               </div>  
 
-              <div className='h-[46px] w-[1px] bg-[#5C6272] my-auto mx-[24px]'/>
+              <div className='h-[46px] w-[1px] bg-[#5C6272] my-auto md:mx-[24px] mx-[6px]'/>
 
               {/* FULL SCREEN BUTTON */}
               <div>   
