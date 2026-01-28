@@ -9,7 +9,7 @@ import CircleShadow from '../../layout/CircleShadow'
 
 const Footer:React.FC = () => {
   return (
-    <div className='w-full max-w-[1950px] mx-auto relative'>
+    <div className='w-full max-w-[1950px] mx-auto relative overflow-x-clip'>
      
      <FooterInfoSection />
      <FooterLinksSection />

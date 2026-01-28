@@ -13,7 +13,6 @@ const App:React.FC = () => {
 
 
   return (
-    <div className='w-full max-w-[1920px] mx-auto overflow-hidden'>
     <BrowserRouter>
       <HeaderAndNav/>
       <ScrollToTop />
@@ -24,8 +23,8 @@ const App:React.FC = () => {
         </Routes>
       <Footer />
     </BrowserRouter>
-    </div>
   );
 }
 
 export default App
+5
