@@ -88,13 +88,13 @@ const ReadComic: React.FC = () => {
       <div className='gap-[30px] px-[20px] 2xl:px-[0px] max-w-[1920px] mx-auto mt-[140px] flex lg:flex-row flex-col justify-end 2xl:pr-[100px]'>
 
         {/* PDF AREA */}
-        <div className={`overflow-hidden ${ScreenSize ? "w-screen h-screen fixed left-0 top-0 z-[888] rounded-[0px]" : "rounded-[20px] h-[863px] lg:w-[1070px] w-full"}`}>
+        <div className={`overflow-hidden ${ScreenSize ? "w-screen h-screen fixed left-0 top-0 z-[888] rounded-[0px]" : "rounded-[20px] h-[863px] lg:w-[1070px] relative w-full"}`}>
           <img 
             src={currentEpisode.pdfBackground} 
-            className=' -z-[10] h-full w-full md:h-auto md:w-auto '
+            className='z-[-10] h-full w-full md:h-auto md:w-auto '
             alt="PDF Background"
           />
-          <div className='h-[90%] w-[90%] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
+          <div className='h-[90%] w-[90%] z-[40] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
             <h1 className='text-[50px] font-bold text-center mt-[30px] text-black bg-white/20 backdrop-blur-2xl'>
               PDF EPISODE : {currentEpisode.episodeNumber}
             </h1>
