@@ -84,14 +84,14 @@ const ReadComic: React.FC = () => {
   }
 
   return (
-    <div className={`mb-[200px] relative ${ScreenSize ? "w-screen h-full fixed left-0 top-0 z-[888]" : ""}`}>
-      <div className='gap-[30px] max-w-[1920px] mx-auto mt-[140px] flex justify-end pr-[100px]'>
+    <div className={`mb-[200px] relative  ${ScreenSize ? "w-screen h-full fixed left-0 top-0 z-[888]" : ""}`}>
+      <div className='gap-[30px] px-[20px] 2xl:px-[0px] max-w-[1920px] mx-auto mt-[140px] flex lg:flex-row flex-col justify-end 2xl:pr-[100px]'>
 
         {/* PDF AREA */}
-        <div className={`rounded-[20px] overflow-hidden  ${ScreenSize ? "w-screen h-screen fixed left-0 top-0 z-[888]" : "h-[863px] w-[1070px] relative"}`}>
+        <div className={`overflow-hidden ${ScreenSize ? "w-screen h-screen fixed left-0 top-0 z-[888] rounded-[0px]" : "rounded-[20px] h-[863px] lg:w-[1070px] w-full"}`}>
           <img 
             src={currentEpisode.pdfBackground} 
-            className='absolute -z-[10]'
+            className=' -z-[10] h-full w-full md:h-auto md:w-auto '
             alt="PDF Background"
           />
           <div className='h-[90%] w-[90%] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
@@ -101,9 +101,9 @@ const ReadComic: React.FC = () => {
           </div>
         </div>
 
-        <div className='w-[345px] '>
+        <div className='lg:w-[345px] w-full'>
           {/* TITLE IMAGE */}
-          <div className='rounded-[20px] h-[221px] w-[332px] overflow-hidden'>
+          <div className='rounded-[20px] h-[221px] w-[332px] overflow-hidden hidden sm:block'>
             <img 
               src={currentEpisode.titleImage} 
               alt="Title"
@@ -120,7 +120,7 @@ const ReadComic: React.FC = () => {
               />
             </div>
 
-            <div className='w-[222px]'>
+            <div className='lg:w-[222px]  md:w-[422px] w-[70%]'>
               <h1 className='text-[20px]'>
                 {ComicData.title}
               </h1>
@@ -150,13 +150,16 @@ const ReadComic: React.FC = () => {
           </div>
         </div>
       </div>
+
+      
      
       {/* BOTTOM BAR */}
-      <div className={`bg-[#1D212B] h-[101px] w-full transform duration-300 z-[999] bottom-0 ${ScreenSize ? "fixed": "sticky"}`}>
-        <div className='max-w-[1920px] mx-auto h-full px-[120px] py-[20px]'>
+      <div className={`bg-[#1D212B] lg:h-[101px] h-auto w-full transform duration-300 z-[999] bottom-0 ${ScreenSize ? "fixed": "sticky"}`}>
+        
+        <div className='max-w-[1920px] mx-auto h-full xl:px-[120px] lg:px-[100px] md:px-[60px] px-[20px] py-[20px]'>
           <div className='flex justify-between'>
             {/* LEFT SECTION */}
-            <div className='flex gap-[12px]'>
+            <div className='lg:flex gap-[12px] hidden'>
               {/* THUMBNAIL */}
               <div className='h-[60px] w-[60px] rounded-[10px] overflow-hidden'>
                 <img 
@@ -166,7 +169,7 @@ const ReadComic: React.FC = () => {
               </div>
               
               {/* EPISODE INFO */}
-              <div className='flex flex-col justify-center gap-[4px] border-r w-[340px] border-[#5C6272] h-[44px] my-auto'>
+              <div className='flex flex-col justify-center gap-[4px] border-r xl:w-[340px] xl:p-0 px-[10px] border-[#5C6272] h-[44px] my-auto'>
                 <p className='text-[16px]'>
                   Episode {currentEpisode.episodeNumber}
                 </p>
@@ -192,9 +195,10 @@ const ReadComic: React.FC = () => {
             <BtnWithIcon 
               onClick={() => SetIsLiked(!isLiked)}
               title="liked" 
+              className='mx-auto'
               icon={
                 <TiHeartOutline 
-                  className={`text-[24px] ${isLiked ? "text-red-600" : ""}`}
+                  className={`text-[24px]  ${isLiked ? "text-red-600" : ""}`}
                 />
               }
             />
@@ -202,7 +206,7 @@ const ReadComic: React.FC = () => {
             {/* RIGHT SECTION */}
             <div className='flex'>
               {/* LIST/COMMENT TABS */}
-              <div className='flex gap-[9px]'>   
+              <div className='sm:flex gap-[9px] hidden '>   
                 <div className={`rounded-[10px] h-[70px] ${isActive === 'list' ? "bg-[#303645] w-[70px]" : ""}`}>
                   <BtnWithIcon 
                     onClick={() => setIsActive('list')}

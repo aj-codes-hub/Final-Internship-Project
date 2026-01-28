@@ -58,7 +58,7 @@ const SocialLoginButtons: React.FC<SocialLoginButtonsProps> = ({
   );
 
   return (
-    <div className='flex w-full justify-between sm:mt-[32px] mt-[26px]'>
+    <div className='flex w-full justify-between sm:mt-[32px] mt-[26px] cursor-pointer'>
       {socialButtons.map((button) => {
         const isActive = isLoading && activeProvider === button.id;
         
@@ -67,7 +67,7 @@ const SocialLoginButtons: React.FC<SocialLoginButtonsProps> = ({
             key={button.id}
             onClick={() => onSocialLogin(button.id)}
             disabled={isLoading}
-            className={`border border-gray-700 sm:w-[48px] w-[45px] sm:h-[48px] h-[45px] rounded-[8px] flex items-center justify-center transition-all duration-300 ${button.hoverClass} ${button.bgClass || ''} ${
+            className={`border border-gray-700 sm:w-[48px] cursor-pointer w-[45px] sm:h-[48px] h-[45px] rounded-[8px] flex items-center justify-center transition-all duration-300 ${button.hoverClass} ${button.bgClass || ''} ${
               isActive ? 'opacity-50 cursor-not-allowed' : ''
             }`}
             aria-label={button.label}

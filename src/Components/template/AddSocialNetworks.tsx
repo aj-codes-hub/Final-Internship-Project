@@ -36,13 +36,13 @@ const AddSocialNetworks: React.FC = ({
   ];
 
   return (
-    <div className='flex w-full justify-between'>
+    <div className='flex w-full justify-between cursor-pointer'>
       {socialButtons.map((button) => {
         
         return (
           <button
             key={button.id}
-            className={`border border-gray-700 w-[48px] h-[48px] rounded-[8px] flex items-center justify-center transition-all duration-300  ${button.hoverClass}`}
+            className={`border border-gray-700 w-[48px] cursor-pointer h-[48px] rounded-[8px] flex items-center justify-center transition-all duration-300  ${button.hoverClass}`}
           > 
             {button.icon}
           </button>

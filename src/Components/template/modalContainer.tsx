@@ -20,7 +20,7 @@ const ModalContainer:React.FC<modalContainerProps> = ({className,children, onClo
         <div className='bg-[#1D212B] relative flex gap-4 transform transition-all sm:rounded-[20px] rounded-[15px]'>
           <button 
             onClick={onClose}
-            className='text-[50px] absolute md:right-[-64px] p-4 md:p-0 right-0 top-0 text-[#5C6272] hover:text-white transition-colors z-50'
+            className='text-[50px] absolute md:right-[-64px] p-4 md:p-0 right-0 top-0 cursor-pointer text-white transition-colors z-50'
           >
             <IoIosCloseCircleOutline className='md:block hidden'/> 
             <RxCross1 className='md:hidden block text-[30px]'/>

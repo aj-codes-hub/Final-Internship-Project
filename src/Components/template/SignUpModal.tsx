@@ -546,7 +546,7 @@ const SignupModal: React.FC<SignupModalProps> = ({
               Already have an account?{' '}
               <button 
                 onClick={handleSwitchToLogin}
-                className='text-[#33D6FF] hover:text-white transition-colors font-medium'
+                className='text-[#33D6FF] hover:text-[#2ebbde] cursor-pointer transition-colors font-medium'
               >
                 Login here
               </button>

@@ -58,7 +58,7 @@ const CommentBox:React.FC = () => {
             <img src="/Icons/UnknownPerson2.png" className='scale-[1.1]'/>
           </div>
 
-          <div className='bg-[#818181] w-[2px] h-[85px] ml-[14px] mt-[12px]' />
+          <div className='bg-[#818181] w-[2px] h-[85px] ml-[14px] my-[12px]' />
 
         </div>
         <div >

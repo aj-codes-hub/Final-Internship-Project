@@ -16,23 +16,23 @@ const CmmicFullEP:React.FC = () =>  {
 
   return (
     <div className='max-w-[1920px] mx-auto mb-[200px]'>
-      <div className='h-[393px] w-full overflow-hidden flex items-end justify-center mt-[169px]'>
-       <img src={ComicData.coverImage} />
+      <div className='h-[393px] w-full overflow-hidden flex items-end justify-center xl:mt-[169px] lg:mt-[120px] md:mt-[129px]  mt-[109px]'>
+       <img src={ComicData.coverImage} className='md:scale-[1] sm:scale-[2] scale-[3]'/>
       </div>
       
       <div className='flex justify-between'>
 
-       <div className='w-[311px] h-[1718px] overflow-hidden flex justify-center items-center'>
+       <div className='h-[1718px] w-[311px] overflow-hidden xl:flex justify-center items-center hidden'>
         <img src={ComicData.backgroundLeft}
              className='scale-[10] ml-[440px]'/>
        </div>
 
-       <div className='px-[64px] flex gap-[30px]'>
+       <div className='md:px-[64px] px-[20px] flex flex-col lg:flex-row gap-[30px] mx-auto'>
 
            {/* Comic Detail section */}
-         <div className='w-[470px]'>
+         <div className='w-full lg:w-[340px] xl:w-[400px] 2xl:w-[470px]'>
  
-          <div className='rounded-[20px] h-[462px] w-[325px] overflow-hidden relative -mt-[250px]'>
+          <div className='rounded-[20px] h-[462px] sm:w-[325px] w-full overflow-hidden relative -mt-[250px]'>
 
            <div className='absolute h-full w-[135%] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
               <img src={ComicData.mainCharacterImage}
@@ -190,16 +190,16 @@ const CmmicFullEP:React.FC = () =>  {
 
 
              {/* episodes here */}     
-          <div className='w-[670px] mt-[53px]'>
+          <div className='2xl:w-[670px] lx:w-[600px] lg:w-[550px] md:w-full w-full mt-[53px]'>
             <Episodebutton />
             <Button title='View More'
-                    className='text-[#33D6FF] mt-[38px] text-[16px] h-[60px] w-[242px] border mx-auto'/>
+                    className='text-[#33D6FF] mt-[38px] text-[16px] h-[60px] lg:w-[242px] w-full border mx-auto'/>
           </div>
 
 
        </div>
 
-       <div className='w-[311px] h-[1718px] overflow-hidden flex justify-center items-center'>
+       <div className='h-[1718px] w-[311px] overflow-hidden xl:flex justify-center items-center hidden'>
         <img src={ComicData.backgroundLeft}
              className='scale-[10] mr-[180px]'/>
        </div>
