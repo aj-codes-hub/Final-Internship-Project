@@ -5,10 +5,3 @@ p{
 h5{
     @apply font-semibold text-[1.2rem] mt-3;
 }
-
-
-.hello{
-    position: static;
-    top: 0;
-    background-color: aqua;
-}

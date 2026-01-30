@@ -1,268 +1,152 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react'
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
-interface ComicSlide {
-  id: number;
-  imageUrl: string;
-  title: string;
-  genre: string;
-  profileImage: string;
-}
 
-const comicSlides: ComicSlide[] = [
+const StageComicsCardSection:React.FC = () => {
+
+const cardData = [
   { 
     id: 1, 
-    imageUrl: "/Images/AnimeCard6.png",
+    imageUrl: "/Images/AnimeCard4.png",
     title: "The Last Samurai",
     genre: "Action · Fantasy",
-    profileImage: "/Images/AnimeCardProFile.png"
+    profileImage: "/Images/AnimeCardProFile.png",
+    Styles:"left-1/2"
   },
   { 
     id: 2, 
     imageUrl: "/Images/AnimeCard4.png",
     title: "Dragon's Legacy",
     genre: "Adventure · Magic",
-    profileImage: "/Images/Anime3.png"
+    profileImage: "/Images/Anime3.png",
+    Styles:"top-[100%] left-1/2 rotate-180"
   },
   { 
     id: 3, 
+    imageUrl: "/Images/AnimeCard6.png",
+    title: "Cyber Shinobi",
+    genre: "Sci-Fi · Ninja",
+    profileImage: "/Images/Anime1.png",
+    Styles:"top-[25%] left-[5%] rotate-300",
+    imgStyle:"w-full h-[80%] scale-[1.3]"
+  },
+  { 
+    id: 4, 
+    imageUrl: "/Images/AnimeCard5.png",
+    title: "The Last Samurai",
+    genre: "Action · Fantasy",
+    profileImage: "/Images/AnimeCardProFile.png",
+    Styles:"top-[75%] left-[5%] rotate-240",
+    imgStyle:"w-full h-[80%] transform scale-y-[1.3] -scale-x-[1.3]"
+  },
+  { 
+    id: 5, 
+    imageUrl: "/Images/AnimeCard6.png",
+    title: "Dragon's Legacy",
+    genre: "Adventure · Magic",
+    profileImage: "/Images/Anime3.png",
+    Styles:"top-[75%] rotate-120 left-[95%]",
+    imgStyle:"w-full h-[80%] scale-[1.3]"
+  },
+  { 
+    id: 6, 
     imageUrl: "/Images/AnimeCard5.png",
     title: "Cyber Shinobi",
     genre: "Sci-Fi · Ninja",
-    profileImage: "/Images/Anime1.png"
+    profileImage: "/Images/Anime1.png",
+    Styles:"left-[95%] top-[25%] rotate-60",
+    imgStyle:"w-full h-[80%] transform scale-y-[1.3] -scale-x-[1.3]"
   },
 ];
 
-const StageComicsCardSection: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-  const [radius, setRadius] = useState(700);
-  const [scaleFactor, setScaleFactor] = useState(1);
+    
+const [rotateVal , setRotateVal] = useState(0)
+const [ProfilleAndTitle , setProfilleAndTitle] = useState<number>(0)
 
-  const currentComic = comicSlides[current];
 
-  useEffect(() => {
-    const updateResponsiveValues = () => {
-      const screenWidth = window.innerWidth;
-      
-      const baseWidth = 1920;
-      const scale = screenWidth / baseWidth;
-      
-      const clampedScale = Math.max(0.5, Math.min(1, scale));
-      setScaleFactor(clampedScale);
-
-      if (screenWidth < 768) {
-        setRadius(220 * clampedScale);
-      } else if (screenWidth < 1024) {
-        setRadius(360 * clampedScale);
-      } else {
-        setRadius(480 * clampedScale);
+const hangleRotateNext = () => {
+      setRotateVal(rotateVal + 60);
+      if(ProfilleAndTitle <= 4){
+      setProfilleAndTitle(ProfilleAndTitle + 1)
       }
-    };
+      else{
+       setProfilleAndTitle(0)
+      }
+}
 
-    updateResponsiveValues();
-    window.addEventListener('resize', updateResponsiveValues);
-    return () => window.removeEventListener('resize', updateResponsiveValues);
-  }, []);
 
-  const next = () => setCurrent((prev) => (prev + 1) % comicSlides.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + comicSlides.length) % comicSlides.length);
+const hangleRotatePrev = () => {
+      setRotateVal(rotateVal - 60);
+      if(ProfilleAndTitle > 0){
+      setProfilleAndTitle(ProfilleAndTitle - 1)
+      }
+      else{
+       setProfilleAndTitle(5)
+      }
+}
 
-  const getCircularPosition = (index: number) => {
-    const totalSlides = comicSlides.length;
-    const startAngle = -105;
-    const endAngle = 105;
-    const angleRange = endAngle - startAngle;
-    const relativeIndex = (index - current + totalSlides) % totalSlides;
-    const angle = startAngle + (angleRange / (totalSlides - 1)) * relativeIndex;
-    const radian = (angle * Math.PI) / 180;
-    
-    // Base positions
-    let x = Math.sin(radian) * radius;
-    let y = -Math.cos(radian) * radius * 0.3 - (200 * scaleFactor);
-    
-    // Calculate scale - right ko normal, center aur left ko chota
-    let scale = 1;
-    if (relativeIndex === 0) {
-      scale = 0.85; // Center image (chota)
-      // Center ki position thodi adjust karein
-      x = x * 1; // Center ko thoda right side shift
-      y = y - (-50 * scaleFactor); // Center ko thoda upar shift
-    } else if (relativeIndex === 1) {
-      scale = 1; // Right image (normal)
-      // Right ki position thodi adjust karein
-      x = x * 0.9; // Right ko thoda left side shift
-    } else if (relativeIndex === totalSlides - 1) {
-      scale = 0.85; // Left image (chota)
-      // Left ki position thodi adjust karein
-      x = x * 1; // Left ko thoda right side shift
-      y = y + (20 * scaleFactor); // Left ko thoda neeche shift
-    }
-    
-    return { x, y, angle, scale };
-  };
-
-  const responsiveValues = {
-    containerHeight: 716 * scaleFactor,
-    arcHeight: 1500 * scaleFactor,
-    arcTop: 230 * scaleFactor,
-    
-    titleSize: 50 * scaleFactor,
-    comicTitleSize: 26 * scaleFactor,
-    genreSize: 16 * scaleFactor,
-    
-    profileSize: 70 * scaleFactor,
-
-    buttonSize: 80 * scaleFactor,
-    buttonGap: 45 * scaleFactor,
-    iconSize: 16 * scaleFactor,
-    
-    cardWidth: 264 * scaleFactor,
-    cardHeight: 340 * scaleFactor,
-
-    marginBottom: 6 * scaleFactor,
-    gap: 4 * scaleFactor,
-    buttonMarginBottom: 64 * scaleFactor,
-    titleMarginTop: 24 * scaleFactor,
-  };
+  {}
 
   return (
-    <div className="w-full flex flex-col items-center justify-center relative overflow-hidden py-10 my-[100px]">
-
-      <div className="w-full max-w-[1230px]" style={{ marginBottom: `${responsiveValues.marginBottom}px` }}>
-        <h1 className="font-semibold text-center md:text-left" style={{ fontSize: `${responsiveValues.titleSize}px` }}>
+    <div className='my-[100px]'>
+   
+       <div className="w-full max-w-[1230px] mx-auto">
+        <h1 className="font-semibold text-center md:text-left text-[50px] ml-[15px] xl:ml-0">
           StageComics Originals
         </h1>
       </div>
 
-      <div 
-        className="relative w-full max-w-[1920px] flex items-center justify-center mx-auto px-4"
-        style={{ height: `${responsiveValues.containerHeight}px` }}
-      >
-        
-        <div className="relative w-[68%] h-full flex items-end justify-center">
+      <div className='h-[750px] w-full relative pt-[200px] overflow-hidden'>
 
-          <div className="w-full flex justify-center h-full absolute top-0 left-0 overflow-hidden">
-            <div 
-              className="w-[90%] border-[3px] border-t-[0px] border-[#D3F85A] rounded-full absolute"
-              style={{ 
-                height: `${responsiveValues.arcHeight}px`,
-                top: `${responsiveValues.arcTop}px`
-              }}
-            ></div>
-          </div>
-          
-          <div className="flex flex-col absolute top-[46%]">
-            <div 
-              className="rounded-full mx-auto z-[40] overflow-hidden"
-              style={{
-                width: `${responsiveValues.profileSize}px`,
-                height: `${responsiveValues.profileSize}px`
-              }}
-            >
-              <img 
-                src={currentComic.profileImage} 
-                alt="Profile" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div 
-              className="text-center flex flex-col mb-[64px] mt-[24px]"
-              style={{ 
-                gap: `${responsiveValues.gap}px`,
-                marginBottom: `${responsiveValues.buttonMarginBottom}px`,
-                marginTop: `${responsiveValues.titleMarginTop}px`
-              }}
-            >
-              <p style={{ fontSize: `${responsiveValues.genreSize}px` }}>{currentComic.genre}</p>
-              <h1 className="font-semibold mt-10 md:mt-0" style={{ fontSize: `${responsiveValues.comicTitleSize}px` }}>
-                {currentComic.title}
-              </h1>
-            </div>
+     <div className='absolute border-[3px] border-[#D3F85A] border-t-[0px] -translate-x-1/2 left-1/2 h-[1170px] w-[1170px] rounded-full transform duration-500 ' />
 
-            <div 
-              className="flex z-50 mx-auto"
-              style={{ gap: `${responsiveValues.buttonGap}px` }}
-            >
-              <button 
-                onClick={prev} 
-                className="text-[#D3F85A] flex rounded-full border border-white justify-center cursor-pointer items-center
-                         hover:bg-[#d3f85a20] hover:scale-105 transform duration-200"
-                style={{
-                  width: `${responsiveValues.buttonSize}px`,
-                  height: `${responsiveValues.buttonSize}px`
-                }}
-              >
-                <FaChevronLeft size={responsiveValues.iconSize} />        
-              </button>
+     <div className='absolute -translate-x-1/2 left-1/2 h-[1170px] w-[1170px] rounded-full transform duration-500'
+          style={{rotate: `${rotateVal}deg`}}>
+      
 
-              <button 
-                onClick={next} 
-                className="text-[#D3F85A] flex rounded-full border border-white justify-center cursor-pointer items-center
-                          hover:bg-[#d3f85a20] hover:scale-105 transform duration-200"
-                style={{
-                  width: `${responsiveValues.buttonSize}px`,
-                  height: `${responsiveValues.buttonSize}px`
-                }}
-              >
-                <FaChevronRight size={responsiveValues.iconSize} />
-              </button>
-            </div>
-          </div>
+      {cardData.map((item,index)=>(
+       <div key={index} 
+            className={`w-[263px] h-[319px] flex items-center hover:scale-[1.04] transition duration-300 justify-center overflow-hidden border-white text-black absolute rounded-[20px] -translate-y-1/2 -translate-x-1/2 ${item.Styles}`}>
+            <img src={item.imageUrl}
+                 className={`${item.imgStyle}`}/>
+        </div> 
+      ))}
+       
 
-          {comicSlides.map((comic, index) => {
-            const position = getCircularPosition(index);
-            
-            return (
-              <motion.div
-                key={comic.id}
-                className="absolute cursor-pointer z-20"
-                animate={{
-                  x: position.x,
-                  y: position.y,
-                  scale: position.scale,
-                  opacity: 1,
-                  zIndex: index === current ? 30 : 20,
-                  rotate: position.angle * 0.4,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 25,
-                  duration: 0.8
-                }}
-                whileHover={{ 
-                  scale: position.scale * 1.05,
-                }}
-                onClick={() => setCurrent(index)}
-                style={{
-                  width: `${responsiveValues.cardWidth}px`,
-                  height: `${responsiveValues.cardHeight}px`,
-                }}
-              >
-                <div className="w-full h-full bg-white rounded-[20px] shadow-2xl overflow-hidden transform-gpu">
-                  <div className="w-full h-full">
-                    <img 
-                      src={comic.imageUrl} 
-                      alt={`Comic ${comic.title}`}
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+     </div>  
+
+       
+       <div className='rounded-full absolute overflow-hidden h-[80px] w-[80px] -translate-y-1/2 -translate-x-1/2 top-[46%] left-1/2'>
+        <img src={cardData[ProfilleAndTitle].profileImage}/>
+       </div>
+
+      <div className='text-center absolute -translate-y-1/2 -translate-x-1/2 top-[62%] left-1/2'>
+        <p className='text-[20px]'>
+            {cardData[ProfilleAndTitle].genre} 
+        </p>
+        <h1 className='text-[32px] font-semibold'>
+            {cardData[ProfilleAndTitle].title}
+        </h1>
       </div>
+        
+      <div className='absolute flex gap-[45px] -translate-y-1/2 left-1/2 -translate-x-1/2 top-[80%] '>
 
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl"></div>
+      <button  onClick={hangleRotatePrev}
+               className='border h-[80px] w-[80px] rounded-full flex items-center justify-center cursor-pointer transform duration-300 hover:bg-[#d3f85a29]'>
+                <FaChevronLeft className='text-[#D3F85A]'/>
+      </button>  
+
+      <button  onClick={hangleRotateNext}
+               className='border h-[80px] w-[80px] rounded-full flex items-center justify-center cursor-pointer transform duration-300 hover:bg-[#d3f85a29]'>
+                <FaChevronRight className='text-[#D3F85A]'/>
+      </button>
+
+      </div>
+      
+
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StageComicsCardSection;
-
+export default StageComicsCardSection

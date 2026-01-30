@@ -1,9 +1,13 @@
-const Explore = () => {
+import type React from "react";
+import Error from '../../Components/layout/404error'
+
+
+
+const Explore:React.FC = () => {
   return (
-    <div className="p-8 text-white">
-      <h1 className="text-3xl mb-4">Explore Page</h1>
-      <p>This is Explore page. Content coming soon...</p>
-    </div>
+    <>
+    <Error />
+    </>
   );
 };
 export default Explore;

@@ -7,6 +7,7 @@ import Footer from './Components/layout/Footer/Footer';
 import HeaderAndNav from './Pages/HeaderAndNav';
 import ReadComic from './Pages/ReadComic/ReadComic';
 import ScrollToTop from './hooks/NotScrolled';
+import Explore from './Pages/Explore/Explore';
 
 
 const App:React.FC = () => {
@@ -18,6 +19,7 @@ const App:React.FC = () => {
       <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home /> } />
+          <Route path='/Explore' element={<Explore /> } />
           <Route path="/Comic" element={<CmmicFullEP /> } />
           <Route path="/ReadComic/:episodeId" element={<ReadComic />} />
         </Routes>

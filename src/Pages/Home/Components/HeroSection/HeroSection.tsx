@@ -16,6 +16,9 @@ const slides: Slide[] = [
   { id: 1, content: <Card1 />, AnimeImg: "/Images/AnimeCard2.png"},
   { id: 2, content: <Card2 />, AnimeImg: "/Images/AnimeCard1.png"},
   { id: 3, content: <Card3 />, AnimeImg: "/Images/AnimeCard3.jpg"},
+  { id: 4, content: <Card1 />, AnimeImg: "/Images/AnimeCard2.png"},
+  { id: 5, content: <Card2 />, AnimeImg: "/Images/AnimeCard1.png"},
+  { id: 6, content: <Card3 />, AnimeImg: "/Images/AnimeCard3.jpg"},
 ];
 
 const HeroSection: React.FC = () => {
