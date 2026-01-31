@@ -11,7 +11,7 @@ const CmmicFullEP:React.FC = () =>  {
 
   // ✅ Function to navigate to first episode
   const handleReadFirstEpisode = () => {
-    navigate('/ReadComic/ep_001'); // ✅ First episode ka direct URL
+    navigate('/read-comic/ep_001'); // ✅ First episode ka direct URL
   };
 
   return (

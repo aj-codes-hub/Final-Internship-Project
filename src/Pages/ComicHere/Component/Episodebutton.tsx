@@ -7,7 +7,7 @@ const Episodebutton: React.FC = () => {
   const { episodeId } = useParams<{ episodeId?: string }>();
 
   const handleNavigateTo = (episodeId: string) => {
-    navigate(`/ReadComic/${episodeId}`);
+    navigate(`/read-comic/${episodeId}`);
   }
 
   return ( 
@@ -23,7 +23,7 @@ const Episodebutton: React.FC = () => {
             // ✅ Sirf yeh class change karo, baaki sab same rahega
             className={`
               border-t-[1px] border-b-[1px] flex gap-[31px] border-[#1D212B] 
-              h-[98px] w-full hover:bg-[#1D212B] transform duration-300
+              h-[98px] w-full hover:bg-[#1D212B] transform duration-300 cursor-pointer
               ${isActive ? 'bg-[#1D212B]' : ''} // ✅ Sirf active par background add karo
             `}
           >

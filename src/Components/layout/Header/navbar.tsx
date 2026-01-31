@@ -15,10 +15,10 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
   const navLink = [
     { id: 1, name: "Home", path:'/'},
-    { id: 2, name: "Explore", path:'Explore' },
-    { id: 3, name: "Genres", path:'Genres' },
-    { id: 4, name: "Top Authors", path:'Top Authors' },
-    { id: 5, name: "Translate", path:'Translate' },
+    { id: 2, name: "Explore", path:'explore' },
+    { id: 3, name: "Genres", path:'genres' },
+    { id: 4, name: "Top Authors", path:'top-Authors' },
+    { id: 5, name: "Translate", path:'translate' },
   ];
 
 

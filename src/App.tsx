@@ -19,9 +19,9 @@ const App:React.FC = () => {
       <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home /> } />
-          <Route path='/Explore' element={<Explore /> } />
-          <Route path="/Comic" element={<CmmicFullEP /> } />
-          <Route path="/ReadComic/:episodeId" element={<ReadComic />} />
+          <Route path='/explore' element={<Explore /> } />
+          <Route path="/comic" element={<CmmicFullEP /> } />
+          <Route path="/read-comic/:episodeId" element={<ReadComic />} />
         </Routes>
       <Footer />
     </BrowserRouter>

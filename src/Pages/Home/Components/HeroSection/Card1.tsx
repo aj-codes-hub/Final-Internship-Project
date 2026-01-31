@@ -12,7 +12,7 @@ const Card1:React.FC = () => {
 const navigate = useNavigate();
 
 const handleNavigateTo = () =>{
-  navigate('/Comic');
+  navigate('/comic');
 }
 
 
@@ -20,7 +20,7 @@ const handleNavigateTo = () =>{
         <>     
            <div 
                 className="w-[55%] h-[88%] flex mx-auto my-auto 
-                                   flex-col justify-between pl-[30px] pr-[73px]">
+                           flex-col justify-between pl-[30px] pr-[73px]">
                                   
                   <h1 className="text-[15px]
                                  sm:text-[19px]

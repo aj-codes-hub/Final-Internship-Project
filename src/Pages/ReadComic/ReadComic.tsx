@@ -44,7 +44,7 @@ const ReadComic: React.FC = () => {
     
     if (currentIndex > 0) {
       const prevEpisode = ComicEpisode[currentIndex - 1];
-      navigate(`/ReadComic/${prevEpisode.id}`);
+      navigate(`/read-comic/${prevEpisode.id}`);
     }
   }
 
@@ -56,7 +56,7 @@ const ReadComic: React.FC = () => {
     
     if (currentIndex < ComicEpisode.length - 1) {
       const nextEpisode = ComicEpisode[currentIndex + 1];
-      navigate(`/ReadComic/${nextEpisode.id}`);
+      navigate(`/read-comic/${nextEpisode.id}`);
     }
   }
 
