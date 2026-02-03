@@ -25,10 +25,10 @@ return (
 
              
                    <div key={index} 
-                        className="w-[55%] h-[88%] flex mx-auto my-auto 
+                        className="w-[55%] h-[88%] flex mx-auto my-auto
                                    flex-col justify-between px-[30px]">
                                   
-                  <h1 className="text-[15px]
+                  <h1 className="text-[15px] font-semibold
                                  sm:text-[19px]
                                  md:text-[20px]
                                  lg:text-[22px]
@@ -40,7 +40,7 @@ return (
                     
                   
                     
-                        <div className="gap-[3px] flex items-center
+                        <div className="gap-[3px] flex items-center mt-[16px]
                                         md:gap-[4px]
                                         lg:gap-[5px]
                                         xl:gap-[6px]
@@ -69,7 +69,7 @@ return (
                   
                   
 
-                  <div className="w-[60%] sm:w-[95%] opacity-[60%]">
+                  <div className="w-[60%] sm:w-[95%] opacity-[60%] mt-[26px]">
                     <p className="text-[8px]       leading-[12px]  
                                  sm:text-[10px]   sm:leading-[14px]  
                                  md:text-[11px]   md:leading-[14px]
@@ -81,7 +81,7 @@ return (
                     </p>
                   </div>
 
-                  <h1 className="text-[20px] font-semibold
+                  <h1 className="text-[20px] font-semibold mt-[24px]
                                  md:text-[16px]
                                  lg:text-[20px]
                                  xl:text-[26px]
@@ -90,7 +90,7 @@ return (
                     Author 
                   </h1>
   
-                  <div className="h-[38px]     w-[38px]     rounded-full overflow-hidden
+                  <div className="h-[38px]     w-[38px]  mt-[22px]  rounded-full overflow-hidden
                                   md:h-[42px] md:w-[42px]
                                   lg:h-[46px] lg:w-[46px] 
                                   xl:h-[50px] xl:w-[50px] 
@@ -100,7 +100,7 @@ return (
                      <img src={item.characterImg} className='scale-125'/>
                   </div>
 
-                   <div className="gap-[6px] flex
+                   <div className="gap-[6px] flex mt-[45px]
                                    md:gap-[14px]  
                                    lg:gap-[15px] 
                                    xl:gap-[20px] 
@@ -109,10 +109,10 @@ return (
                    ">
 
                      <Button title="Read Now"
-                             className="border border-[#33D6FF] text-[#33D6FF] font-light text-[8px]"
+                             className="border border-[#33D6FF] text-[#33D6FF] font-medium text-[8px]"
                      />
                      <Button title="Get Premium"
-                             className="bg-[#FEB705] text-black font-light text-[8px]"
+                             className="bg-[#FEB705] text-black text-[8px]"
                      />
 
                    </div>

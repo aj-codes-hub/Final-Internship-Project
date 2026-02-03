@@ -14,7 +14,7 @@ const Home: React.FC = () => {
 
   return (
     <div className='max-w-[1920px] w-full mx-auto overflow-hidden'>
-      <HeroSection />
+      {/* <HeroSection /> */}
       <HeroSection2 />
       <CategorySection />
       <TrendingSection />

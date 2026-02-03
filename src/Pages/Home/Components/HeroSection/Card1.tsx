@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../../../../Components/layout/Button'
 import { useNavigate } from 'react-router-dom'
-import { ComicData } from '../../../../ComicData'
+import { ComicData } from '../../../../ComicData/ComicData'
 
 
 
@@ -18,9 +18,10 @@ const handleNavigateTo = () =>{
 
   return (
         <>     
+          
            <div 
-                className="w-[55%] h-[88%] flex mx-auto my-auto 
-                           flex-col justify-between pl-[30px] pr-[73px]">
+                className="w-[55%] h-[88%] flex mx-auto my-auto font-semibold
+                           flex-col pl-[30px] pr-[73px]">
                                   
                   <h1 className="text-[15px]
                                  sm:text-[19px]
@@ -34,7 +35,7 @@ const handleNavigateTo = () =>{
                     
                   
                     
-                        <div className="gap-[3px] flex items-center
+                        <div className="gap-[3px] flex items-center mt-[16px]
                                         md:gap-[4px]
                                         lg:gap-[5px]
                                         xl:gap-[6px]
@@ -64,7 +65,7 @@ const handleNavigateTo = () =>{
                   
                   
 
-                  <div className="w-[60%] sm:w-[95%] opacity-[60%]">
+                  <div className="w-[60%] sm:w-[95%] opacity-[60%] mt-[26px]">
                     <p className="text-[8px]       leading-[12px]  
                                  sm:text-[10px]   sm:leading-[14px]  
                                  md:text-[11px]   md:leading-[14px]
@@ -76,7 +77,7 @@ const handleNavigateTo = () =>{
                     </p>
                   </div>
 
-                  <h1 className="text-[20px] font-semibold
+                  <h1 className="text-[20px] font-semibold mt-[24px]
                                  md:text-[16px]
                                  lg:text-[20px]
                                  xl:text-[26px]
@@ -85,7 +86,7 @@ const handleNavigateTo = () =>{
                     Author 
                   </h1>
   
-                  <div className="h-[38px]     w-[38px]     rounded-full overflow-hidden
+                  <div className="h-[38px]     w-[38px]  mt-[22px] rounded-full overflow-hidden
                                   md:h-[42px] md:w-[42px]
                                   lg:h-[46px] lg:w-[46px] 
                                   xl:h-[50px] xl:w-[50px] 
@@ -95,7 +96,7 @@ const handleNavigateTo = () =>{
                      <img src={ComicData.authorImage} className='scale-125'/>
                   </div>
 
-                   <div className="gap-[6px] flex
+                   <div className="gap-[6px] flex mt-[45px]
                                    md:gap-[14px]  
                                    lg:gap-[15px] 
                                    xl:gap-[20px] 
@@ -105,10 +106,10 @@ const handleNavigateTo = () =>{
 
                      <Button title="Read Now"
                              onClick={handleNavigateTo}
-                             className="border border-[#33D6FF] text-[#33D6FF] font-light text-[8px]"
+                             className="border border-[#33D6FF] text-[#33D6FF] font-medium text-[8px]"
                      />
                      <Button title="Get Premium"
-                             className="bg-[#FEB705] text-black font-light text-[8px]"
+                             className="bg-[#FEB705] text-black  text-[8px]"
                      />
 
                    </div>

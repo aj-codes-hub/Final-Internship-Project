@@ -1,0 +1,74 @@
+
+.swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+
+.swiper-slide-prev > div {
+    perspective: 1200px;
+}
+
+.swiper-slide-prev > div > .card {
+    transform-style: preserve-3d;
+    transform: rotateY(10.5deg)  ;
+    transition:transform 0.6s ease-in-out;
+    scale: calc(0.9);
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 10px;
+    background-color: #1D222B;
+}
+
+.swiper-slide-prev > div > .card > div > .cardImg {
+    right: 43px;
+    left: 0;
+}
+
+.swiper-slide-prev > div > .card > div .cardImg > img {
+   transform:scaleX(-1);
+   width: 94%;
+   border-radius: 15px;
+}
+
+.swiper-slide-next > div > .card > div > .cardImg {
+    left: 55px;
+}
+
+.swiper-slide-next > div > .card > div > .cardImg > img {
+    width: 70%;
+}
+
+
+
+.swiper-slide-next > div {
+    perspective: 1200px;
+}
+
+.swiper-slide-next > div > .card {
+    transform: rotatey(-10.5deg);
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    scale: calc(0.9);
+    margin-bottom: 10px;
+    background-color: #1D222B;
+}
+
+
+.swiper-slide {
+  transition: all 0.4s ease;
+}
+
+
+.swiper-slide-active > div > .card > div > .cardImg > .play-Button {
+   display: flex;
+}
+
+.swiper-slide-prev > div > .card > div > .cardImg > .play-Button {
+   display: none;
+}
+
+.swiper-slide-next > div > .card > div > .cardImg > .play-Button {
+   display: none;
+}

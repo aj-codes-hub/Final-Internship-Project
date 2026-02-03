@@ -2,18 +2,26 @@ import React from 'react';
 
 interface CircleShadowProps {
   className?: string;
+  blurClass?: string; 
 }
 
-const CircleShadow: React.FC<CircleShadowProps> = ({ className = "" }) => {
+const CircleShadow: React.FC<CircleShadowProps> = ({
+  className = "",
+  blurClass = "blur-[180px]", 
+}) => {
   return (
-    <div 
-      className={`absolute rounded-full h-[270px] w-[270px] ${className}`}
-      style={{
-        background: 'radial-gradient(circle at center, #33D6FF, #CFF5FF)',
-        filter: 'blur(180px)',
-        opacity: 0.7
-      }}
-    ></div>
+    <div
+      className={`
+        absolute
+        rounded-full
+        h-[270px]
+        w-[270px]
+        opacity-[0.7]
+        bg-[radial-gradient(circle_at_center,#33D6FF,#CFF5FF)]
+        ${blurClass}
+        ${className}
+      `}
+    />
   );
 };
 
