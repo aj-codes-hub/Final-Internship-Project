@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroSection from './Components/HeroSection/HeroSection'
+// import HeroSection from './Components/HeroSection/HeroSection'
 import StageComicsCardSection from './Components/StageComicsCardSection/StageComicsCardSection'
 import CategorySection from './Components/CategorySection'
 import TrendingSection from './Components/TrendingSection'
