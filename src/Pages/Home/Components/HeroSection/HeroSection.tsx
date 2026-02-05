@@ -8,6 +8,8 @@ import Card1 from './Card1';
 // import Card2 from './Card2';
 // import Card3 from './Card3';
 import CircleShadow from '../../../../Components/layout/CircleShadow';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const cardAndData = [
@@ -18,6 +20,13 @@ const cardAndData = [
 
 
 const HeroSection2:React.FC = () => {
+
+    const navigate = useNavigate();
+
+        const handleNavigateTo = () =>{
+        navigate('/comic');
+}
+
    
      const prevRef = useRef<HTMLButtonElement | null>(null);
      const nextRef = useRef<HTMLButtonElement | null>(null);
@@ -64,7 +73,7 @@ const HeroSection2:React.FC = () => {
 
            <SwiperSlide key={item.id}>
                 <div className='flex justify-center items-end mx-auto lg:mx-0 
-                                h-[850px] w-[85%] 
+                                h-[880px] w-[85%] 
                                 md:h-[850px] md:w-[450px] 
                                 lg:h-[650px] lg:w-[900px] 
                                 xl:h-[700px] xl:w-[1040px] 
@@ -93,7 +102,8 @@ const HeroSection2:React.FC = () => {
                                             2xl:w-[482px] 2xl:h-[685px]
                                             '>
 
-                                <div className={`bg-[#33d6ff46] play-Button rounded-full z-30 absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                                <div  onClick={handleNavigateTo}
+                                      className={`bg-[#33d6ff46] cursor-pointer play-Button rounded-full z-30 absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                                             h-[85px] w-[85px] 
                                             md:h-[95px] md:w-[95px] 
                                             lg:h-[105px] lg:w-[105px]
@@ -123,14 +133,14 @@ const HeroSection2:React.FC = () => {
 
         </div>
 
-        <div className='flex gap-[45px] mx-auto  justify-center items-center mt-[65px]'>        
+        <div className='flex gap-[45px] mx-auto justify-between w-full top-1/2 md:justify-center items-center mt-[65px] md:relative absolute z-[20]'>        
             <button ref={prevRef}
-                    className='rounded-full border w-[80px] h-[80px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d]'>
+                    className='rounded-full md:border md:w-[80px] md:h-[80px] sm:w-[60px] sm:h-[60px] w-[40px] h-[40px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d]'>
                 <FaChevronLeft className='text-[#33D6FF]'/>
             </button>
 
             <button ref={nextRef}
-                    className='rounded-full border w-[80px] h-[80px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d]'>
+                    className='rounded-full md:border md:w-[80px] md:h-[80px] sm:w-[60px] sm:h-[60px] w-[40px] h-[40px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d]'>
                 <FaChevronRight className='text-[#33D6FF]'/>
             </button>
         </div>

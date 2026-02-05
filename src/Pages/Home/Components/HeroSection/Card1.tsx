@@ -75,6 +75,7 @@ const handleNavigateTo = () =>{
                     </p>
                   </div>
 
+                <div className='flex flex-row md:flex-col items-center md:items-start gap-[10px] md:gap-[0px]'>
                   <h1 className="text-[20px] font-semibold lg:mt-[24px] mt-[18px]
                                  md:text-[20px]
                                  lg:text-[20px]
@@ -93,7 +94,9 @@ const handleNavigateTo = () =>{
                   ">
                      <img src={ComicData.authorImage} className='scale-125'/>
                   </div>
-
+                 
+                 </div>
+                  
                    <div className="gap-[6px] flex 2xl:mt-[45px] xl:mt-[30px]  mt-[25px] 
                                    md:gap-[14px]  
                                    lg:gap-[15px] 
@@ -104,10 +107,10 @@ const handleNavigateTo = () =>{
 
                      <Button title="Read Now"
                              onClick={handleNavigateTo}
-                             className="border border-[#33D6FF] text-[#33D6FF] font-medium text-[8px]"
+                             className="border border-[#33D6FF] text-[#33D6FF] font-medium text-[15px]"
                      />
                      <Button title="Get Premium"
-                             className="bg-[#FEB705] text-black  text-[8px]"
+                             className="bg-[#FEB705] text-black text-[15px]"
                      />
 
                    </div>
