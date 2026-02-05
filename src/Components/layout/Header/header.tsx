@@ -37,7 +37,7 @@ const Header:React.FC<HeaderProps> = ({onClick}) => {
 
 
   return (
-    <div className={`flex w-full md:left-1/2 md:-translate-x-1/2 max-w-[1950px] sm:h-[100px] h-[80px] md:h-[66px] z-[50] fixed
+    <div className={`flex w-full lg:left-1/2 lg:-translate-x-1/2 max-w-[1950px] sm:h-[100px] h-[80px] md:h-[66px] z-[50] fixed
                      items-center px-[24px] md:px-[40px] lg:px-[70px] py-2 transform duration-500 ${
                      isSticky ? "top-0 bg-black" : "md:top-[23px] top-[3px] bg-transparent"
                      }`}>
@@ -47,7 +47,7 @@ const Header:React.FC<HeaderProps> = ({onClick}) => {
            className='w-[134px] pr-2 md:w-[164px] xl:w-[184px] h-[12px] md:h-[18px]  xl:h-[18px]'
       />
       
-      <Navbar className='text-[.9rem] hidden md:flex
+      <Navbar className='text-[.9rem] hidden lg:flex
                          ml-[31px]
                          md:ml-[41px] 
                          lg:ml-[51px] 
@@ -55,7 +55,7 @@ const Header:React.FC<HeaderProps> = ({onClick}) => {
                          2xl:ml-[71px]
       '/>
      
-      <div className='flex md:ml-auto
+      <div className='flex lg:ml-auto
                       gap-[6px] 
                       md:gap-[8px] 
                       lg:gap-[12px] 
@@ -64,12 +64,12 @@ const Header:React.FC<HeaderProps> = ({onClick}) => {
       '>
         <SearchToggle/>
         <Button title='Sign In'
-                className='border bg-[#33D6FF] text-[#212A4D] font-bold hidden md:block'
+                className='border bg-[#33D6FF] text-[#212A4D] font-bold hidden lg:block'
                 onClick={onClick}
         />
       </div>
 
-      <button onClick={handleMenuOpen} className='md:hidden ml-auto block'>
+      <button onClick={handleMenuOpen} className='lg:hidden ml-auto block'>
           {IsShow ? <IoClose size={40}/> : <LuMenu size={30}/>}
       </button>
 

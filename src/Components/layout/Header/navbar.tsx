@@ -48,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
          <li
             key={link.id}
             onClick={() => handleNavigatedPage(link.name, link.path)}
-            className={`relative group cursor-pointer sm:text-[34px] md:text-[12px] xl:text-[18px]
+            className={`relative group cursor-pointer sm:text-[34px] md:text-[34px] lg:text-[12px] xl:text-[18px]
                         transition-all font-extralight duration-300 hover:font-semibold ${
               isActive === link.name ? "font-semibold text-[#33D6FF]" : ""
             }`}

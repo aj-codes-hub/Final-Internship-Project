@@ -1,176 +1,142 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-import Card1 from './Card1'
-import Card2 from './Card2'
-import Card3 from './Card3'
-import CircleShadow from '../../../../Components/layout/CircleShadow'
+import React, { useEffect, useRef, useState } from 'react'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"
+import "./../../../../assets/Styles/template/heroSection.css"
+import "swiper/css";
+import { Navigation } from "swiper/modules";
+import Card1 from './Card1';
+// import Card2 from './Card2';
+// import Card3 from './Card3';
+import CircleShadow from '../../../../Components/layout/CircleShadow';
 
-interface Slide {
-  id: number;
-  content: React.ReactNode;
-  AnimeImg: string;
-}
 
-const slides: Slide[] = [
+const cardAndData = [
+  { id: 3, content: <Card1 />, AnimeImg: "/Images/AnimeCard3.jpg"},  
   { id: 1, content: <Card1 />, AnimeImg: "/Images/AnimeCard2.png"},
-  { id: 2, content: <Card2 />, AnimeImg: "/Images/AnimeCard1.png"},
-  { id: 3, content: <Card3 />, AnimeImg: "/Images/AnimeCard3.jpg"},
+  { id: 2, content: <Card1 />, AnimeImg: "/Images/AnimeCard1.png"},
 ];
 
-const HeroSection: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-  const [scale, setScale] = useState(1);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      const baseWidth = 1920;
-      const newScale = Math.max(0.5, Math.min(1, screenWidth / baseWidth));
-      setScale(newScale);
-    };
+const HeroSection2:React.FC = () => {
+   
+     const prevRef = useRef<HTMLButtonElement | null>(null);
+     const nextRef = useRef<HTMLButtonElement | null>(null);
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+     const [swiperInstance, setSwiperInstance] =  useState<any>(null);
 
-  const next = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+     useEffect(()=>{
+          
+     if(
+         swiperInstance &&
+         prevRef.current &&
+         nextRef.current &&
+         !swiperInstance.destroyed
+     ){
 
-  const getX = (index: number) => {
-    if (index === current) return 0; 
-    if (index === (current + 1) % slides.length) return 1200 * scale;
-    if (index === (current - 1 + slides.length) % slides.length) return -1200 * scale; 
-    return 2000 * scale; 
-  };
+     swiperInstance.params.navigation.prevEl = prevRef.current
+     swiperInstance.params.navigation.nextEl = nextRef.current
 
-  const isLeftSlide = (index: number) => {
-    return index === (current - 1 + slides.length) % slides.length;
-  };
+     swiperInstance.navigation.destroy()
+     swiperInstance.navigation.init()
+     swiperInstance.navigation.update()
 
-  const isRightSlide = (index: number) => {
-    return index === (current + 1) % slides.length;
-  };
 
-  const getRotationY = (index: number) => {
-    if (isLeftSlide(index)) return 10; 
-    if (isRightSlide(index)) return -10; 
-    return 0;
-  };
+     }   
+     },[swiperInstance]);
 
-  return (
-    <div 
-      className="w-full max-w-[1950px] mx-auto flex flex-col items-center justify-center relative mt-[100px]"
-      style={{ height: `${1000 * scale}px` }}
-    >
-      <CircleShadow className="left-20"/>
 
-      <div 
-        className="relative w-[100%] overflow-hidden flex items-center justify-center "
-        style={{ 
-          height: `${800 * scale}px`,
-          perspective: `${1200 * scale}px`
-        }}
-      >
+   return (
+     <div className='mt-[100px] relative flex flex-col items-center'>
 
-        {slides.map((slide, index) => (
-          <motion.div
-            key={slide.id}
-            drag="x"
-            dragElastic={0.2}
-            onDragEnd={(_, info) => {
-              if (info.offset.x < -80) next();
-              if (info.offset.x > 80) prev();
-            }}
-            animate={{
-              x: getX(index),
-              scale: index === current ? 1 : 0.90,
-              zIndex: index === current ? 20 : 5,
-              rotateY: getRotationY(index),
-            }}
-            transition={{ duration: 0.6 }}
-            className="absolute shadow-2xl flex items-end justify-center text-3xl font-bold "
-            style={{
-              width: `${1170 * scale}px`,
-              height: `${749 * scale}px`,
-              transformStyle: "preserve-3d",
-            }}
-          >
-            
-            <div 
-              className={`w-full flex ${isLeftSlide(index) ? 'flex-row-reverse' : 'flex-row'} bg-[#FFFFFF0D] rounded-[20px]`}
-              style={{
-                height: `${670 * scale}px`
-              }}
-            >
-               <div className="w-[45%] h-full relative">
-                  <div 
-                    className={`rounded-[20px] absolute overflow-hidden flex items-center justify-center
-                               ${isLeftSlide(index) ? 'right-[30px]' : 'left-[30px]'}`}
-                    style={{
-                      height: `${685 * scale}px`,
-                      width: `${482 * scale}px`,
-                      top: `${-64 * scale}px`
-                    }}
-                  >
-                    <div className={`bg-[#33d6ff46] rounded-full z-30 absolute flex items-center justify-center 
-                                      h-[85px] w-[85px] 
-                                      md:h-[95px] md:w-[95px] 
-                                      lg:h-[105px] lg:w-[105px]
-                                      xl:h-[115px] xl:w-[115px]
-                                     ${isLeftSlide(index) ? 'hidden' : 'block'} ${isRightSlide(index) ? 'hidden' : 'block'} `}>
+        <CircleShadow blurClass='blur-[150px]' className="top-1/2 pointer-events-none -translate-y-1/2 left-65 z-[200] bg-[radial-gradient(circle_at_center,#159777,#7BA49A)]"/>
 
-                      <div className="h-[70%] w-[70%] bg-[#33D6FF] rounded-full flex items-center justify-center">
-                        <img src="/Icons/PlayVideo.png"/>
-                      </div>
+        <div className="2xl:w-[1920px] xl:w-[1750px] lg:w-[1500px] sm:min-w-[800px] sm:w-[95%]  w-[700px]  lg:mx-0 ">
+        <Swiper
+            modules={[Navigation]}
+            slidesPerView={1.7350}
+            centeredSlides={true}
+            initialSlide={1}
+            speed={800}
+            onSwiper={setSwiperInstance}
+        >
+
+        {cardAndData.map((item)=>(
+
+           <SwiperSlide key={item.id}>
+                <div className='flex justify-center items-end mx-auto lg:mx-0 
+                                h-[850px] w-[85%] 
+                                md:h-[850px] md:w-[450px] 
+                                lg:h-[650px] lg:w-[900px] 
+                                xl:h-[700px] xl:w-[1040px] 
+                                2xl:h-[750px] 2xl:w-[1170px]  
+                '>
+                   
+                   
+                    <div className='rounded-[20px] bg-[#FFFFFF0D] card duration-500 pb-10 sm:pb-0 ease-out flex flex-col lg:flex-row 
+                                    w-full      h-[700px] 
+                                    md:w-[450px]  md:h-[750px]
+                                    lg:w-[900px]  lg:h-[560px]
+                                    xl:w-[1040px]  xl:h-[560px]
+                                    2xl:w-[1170px] 2xl:h-[670px]
+                                    '>
+                        
+                        <div className='lg:h-full md:h-[300px] h-[300px] relative
+                                       lg:w-[438px]
+                                       xl:w-[438px]
+                                       2xl:w-[512px]
+                        '>
+                            <div className='rounded-[20px] absolute left-[30px] lg:bottom-[64px] bottom-0 overflow-hidden cardImg
+                                            w-[222px]     h-[320px]
+                                            md:w-[222px]  md:h-[320px]
+                                            lg:w-[382px]  lg:h-[585px]
+                                            xl:w-[402px]  xl:h-[585px]
+                                            2xl:w-[482px] 2xl:h-[685px]
+                                            '>
+
+                                <div className={`bg-[#33d6ff46] play-Button rounded-full z-30 absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                                            h-[85px] w-[85px] 
+                                            md:h-[95px] md:w-[95px] 
+                                            lg:h-[105px] lg:w-[105px]
+                                            xl:h-[115px] xl:w-[115px]`}>
+
+                                   <div className="h-[70%] w-[70%] bg-[#33D6FF] rounded-full flex items-center justify-center">
+                                       <img src="/Icons/PlayVideo.png"/>
+                                    </div>
+                                </div>
+                                
+                               <img src={item.AnimeImg}
+                                     className="h-full w-full object-cover"/>
+                            </div>
+                        </div>
+                       
+                         
+                           {item.content}
+
+                        
                     </div>
-
-                    <img 
-                      src={slide.AnimeImg}
-                      className="w-full h-full object-cover z-20 "
-                      alt={`Slide ${slide.id}`}
-                    />
-                    
-                  </div>
-               </div>
-               
-               {slide.content}
-            </div>
-
-          </motion.div>
+                </div>
+            </SwiperSlide>
+        
         ))}
-      </div>
-       <div 
-        className="flex mt-[1.5vh]"
-        style={{ gap: `${45 * scale}px` }}
-      >
-        <button 
-          onClick={next} 
-          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center cursor-pointer
-                    hover:bg-[#33d6ff21] hover:scale-105 transform duration-200"
-          style={{
-            width: `${80 * scale}px`,
-            height: `${80 * scale}px`
-          }}
-        >
-          <FaChevronLeft size={16 * scale} />        
-        </button>
+            
+        </Swiper>
 
-        <button 
-          onClick={prev} 
-          className="text-[#33D6FF] flex rounded-full border border-white justify-center items-center cursor-pointer
-                    hover:bg-[#33d6ff21] hover:scale-105 transform duration-200"
-          style={{
-            width: `${80 * scale}px`,
-            height: `${80 * scale}px`
-          }}
-        >
-          <FaChevronRight size={16 * scale} />
-        </button>
-      </div>
+        </div>
+
+        <div className='flex gap-[45px] mx-auto  justify-center items-center mt-[65px]'>        
+            <button ref={prevRef}
+                    className='rounded-full border w-[80px] h-[80px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d]'>
+                <FaChevronLeft className='text-[#33D6FF]'/>
+            </button>
+
+            <button ref={nextRef}
+                    className='rounded-full border w-[80px] h-[80px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d]'>
+                <FaChevronRight className='text-[#33D6FF]'/>
+            </button>
+        </div>
+
     </div>
   );
 };
 
-export default HeroSection;
+export default HeroSection2
