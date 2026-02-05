@@ -84,7 +84,7 @@ const TrendingSection: React.FC = () => {
 
 
           <div className="md:flex-row flex flex-col items-center justify-between mt-[28px] w-[95%] mx-auto">
-            <button className="md:px-[27px] lg:px-[37px] px-[37px] md:py-[14px] lg:py-[24px] py-[24px] text-[20px] rounded-full border border-[#33D6FF] text-[#33D6FF] hover:bg-[#0D2A45] transition">
+            <button className="md:px-[27px] cursor-pointer lg:px-[37px] px-[37px] md:py-[14px] lg:py-[24px] py-[24px] text-[20px] rounded-full border border-[#33D6FF] text-[#33D6FF] hover:bg-[#0D2A45] transition">
               Read Now
             </button>
 

@@ -70,7 +70,7 @@ const NewComics: React.FC = () => {
           New To Stagecomics
         </h2>
         <button
-          className="w-[270px] h-[65px] bg-[#33D6FF] rounded-[40px] 
+          className="w-[270px] h-[65px] bg-[#33D6FF] rounded-[40px] cursor-pointer
                      flex items-center justify-center md:mx-0 mx-auto
                      font-['Exo_2'] font-semibold text-[22px] leading-[100%] 
                      text-[#040914]"

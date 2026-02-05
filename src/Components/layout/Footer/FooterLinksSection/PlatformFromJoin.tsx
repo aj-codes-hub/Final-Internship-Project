@@ -46,7 +46,7 @@ const Platform = [
                 
                 {Platform.map((item, index)=>(
 
-                    <div key={index} className='bg-[#FFFFFF0F] 
+                    <div key={index} className='bg-[#FFFFFF0F] cursor-pointer
                                                    p-[10px]       rounded-[12px]
                                                    md:p-[12px]    md:rounded-[14px]
                                                    lg:p-[14px]    lg:rounded-[16px]

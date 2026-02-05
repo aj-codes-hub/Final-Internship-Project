@@ -11,7 +11,7 @@ const UerImage = [
 ];
 
   return (
-    <div className='flex flex-col justify-center pr-6 ml-3 md:ml-0
+    <div className='flex flex-col justify-center pr-6 ml-3 md:ml-0 z-[20]
                     gap-[5vw]
                     md:gap-2 
                     lg:gap-4
@@ -21,7 +21,7 @@ const UerImage = [
     
     
     '>
-               <a href='#' className='text-[5vw] font-semibold mt-9
+               <a href='#' className='text-[5vw] font-semibold mt-9 
                                       md:text-[22px]
                                       lg:text-[27px]
                                       xl:text-[32px]
@@ -49,7 +49,7 @@ const UerImage = [
 
             ))}
             
-            <div className='font-bold border-2 border-dotted
+            <div className='font-bold border-2 border-dotted cursor-pointer
                             rounded-full flex items-center justify-center
                             w-[10vw]       h-[10vwpx]      text-[4.2vw]
                             md:w-[24px]    md:h-[24px]   md:text-[10px]

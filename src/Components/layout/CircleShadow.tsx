@@ -16,6 +16,7 @@ const CircleShadow: React.FC<CircleShadowProps> = ({
         rounded-full
         h-[270px]
         w-[270px]
+        pointer-events-none
         opacity-[0.7]
         bg-[radial-gradient(circle_at_center,#33D6FF,#CFF5FF)]
         ${blurClass}

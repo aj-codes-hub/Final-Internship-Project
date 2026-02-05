@@ -91,7 +91,7 @@ const ComicCard: React.FC<ComicCardProps> = ({
       </div>
 
       {/* Read Now Button */}
-      <button className="mt-15 w-[324px] h-[45px] bg-[#33D6FF] rounded-[50px] flex items-center justify-center hover:bg-[#1bb7ef] transition">
+      <button className="mt-15 w-[324px] cursor-pointer h-[45px] bg-[#33D6FF] rounded-[50px] flex items-center justify-center hover:bg-[#1bb7ef] transition">
         <span className="font-['Exo_2'] font-semibold text-[16px] leading-[100%] text-black text-center">
           Read Now
         </span>

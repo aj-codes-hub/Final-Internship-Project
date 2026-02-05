@@ -5,17 +5,17 @@ import "./../../../../assets/Styles/template/heroSection.css"
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import Card1 from './Card1';
-// import Card2 from './Card2';
-// import Card3 from './Card3';
+import Card2 from './Card2';
+import Card3 from './Card3';
 import CircleShadow from '../../../../Components/layout/CircleShadow';
 import { useNavigate } from 'react-router-dom';
 
 
 
 const cardAndData = [
-  { id: 3, content: <Card1 />, AnimeImg: "/Images/AnimeCard3.jpg"},  
+  { id: 3, content: <Card3 />, AnimeImg: "/Images/AnimeCard3.jpg"},  
   { id: 1, content: <Card1 />, AnimeImg: "/Images/AnimeCard2.png"},
-  { id: 2, content: <Card1 />, AnimeImg: "/Images/AnimeCard1.png"},
+  { id: 2, content: <Card2 />, AnimeImg: "/Images/AnimeCard1.png"},
 ];
 
 
@@ -53,6 +53,10 @@ const HeroSection2:React.FC = () => {
      }   
      },[swiperInstance]);
 
+    const [activeIndex, setActiveIndex] = useState(1);
+
+    const lastIndex = cardAndData.length - 1 ; 
+    
 
    return (
      <div className='mt-[100px] relative flex flex-col items-center'>
@@ -67,6 +71,7 @@ const HeroSection2:React.FC = () => {
             initialSlide={1}
             speed={800}
             onSwiper={setSwiperInstance}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >
 
         {cardAndData.map((item)=>(
@@ -135,12 +140,16 @@ const HeroSection2:React.FC = () => {
 
         <div className='flex gap-[45px] mx-auto justify-between w-full top-1/2 md:justify-center items-center mt-[65px] md:relative absolute z-[20]'>        
             <button ref={prevRef}
-                    className='rounded-full md:border md:w-[80px] md:h-[80px] sm:w-[60px] sm:h-[60px] w-[40px] h-[40px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d]'>
+                    disabled={activeIndex === 0}
+                    className={`rounded-full md:border md:w-[80px] md:h-[80px] sm:w-[60px] sm:h-[60px] w-[40px] h-[40px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d] 
+                                ${activeIndex === 0 ? "opacity-[20%] pointer-events-none" : "opacity-[100%]"}`}>
                 <FaChevronLeft className='text-[#33D6FF]'/>
             </button>
 
             <button ref={nextRef}
-                    className='rounded-full md:border md:w-[80px] md:h-[80px] sm:w-[60px] sm:h-[60px] w-[40px] h-[40px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d]'>
+                    disabled={activeIndex === lastIndex}
+                    className={`rounded-full md:border md:w-[80px] md:h-[80px] sm:w-[60px] sm:h-[60px] w-[40px] h-[40px] flex justify-center items-center cursor-pointer hover:bg-[#33d6ff2d] 
+                                ${activeIndex === lastIndex ? "opacity-[20%] pointer-events-none" : "opacity-[100%]"}`}>
                 <FaChevronRight className='text-[#33D6FF]'/>
             </button>
         </div>

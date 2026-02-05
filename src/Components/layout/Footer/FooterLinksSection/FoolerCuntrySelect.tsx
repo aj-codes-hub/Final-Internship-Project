@@ -22,7 +22,7 @@ const CountrySelector: React.FC = () => {
 
       <button
         onClick={() => setOpen(!open)}
-        className="px-4 rounded-lg flex justify-between items-center bg-transparent"
+        className="px-4 rounded-lg flex justify-between items-center bg-transparent cursor-pointer"
       >
         <div className="flex items-center md:gap-3 gap-2">
           <img

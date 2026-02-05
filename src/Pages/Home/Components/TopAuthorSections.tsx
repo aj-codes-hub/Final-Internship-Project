@@ -70,7 +70,7 @@ const TopAuthorsSection : React.FC= () => {
             Top Authors
           </h2>
                      
-          <button className="bg-[#FEB705] hover:bg-[#ffff] px-12 sm:px-16 lg:px-20 py-3 sm:py-3.5 lg:py-4 text-[#0B0E16] font-bold rounded-full transition-all duration-300 text-base sm:text-lg lg:text-xl w-full sm:w-auto hover:scale-105 shadow-lg">
+          <button className="bg-[#FEB705] cursor-pointer px-12 sm:px-16 lg:px-20 py-3 sm:py-3.5 lg:py-4 text-[#0B0E16] font-bold rounded-full transition-all duration-300 text-base sm:text-lg lg:text-xl w-full sm:w-auto hover:scale-105 shadow-lg">
  
             See All
           </button>
