@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"
 import "./../../../../assets/Styles/template/heroSection.css"
-import "swiper/css";
 import { Navigation } from "swiper/modules";
 import Card1 from './Card1';
 import Card2 from './Card2';
@@ -63,7 +62,7 @@ const HeroSection2:React.FC = () => {
 
         <CircleShadow blurClass='blur-[150px]' className="top-1/2 pointer-events-none -translate-y-1/2 left-65 z-[200] bg-[radial-gradient(circle_at_center,#159777,#7BA49A)]"/>
 
-        <div className="2xl:w-[1920px] xl:w-[1750px] lg:w-[1500px] sm:min-w-[800px] sm:w-[95%]  w-[700px]  lg:mx-0 ">
+        <div className="2xl:w-[1920px] hero-Section xl:w-[1750px] lg:w-[1500px] sm:min-w-[800px] sm:w-[95%]  w-[700px]  lg:mx-0 ">
         <Swiper
             modules={[Navigation]}
             slidesPerView={1.7350}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Input from './Input';
-import Button from '../layout/Button';
+import Button from '../../Components/layout/Button';
 import useSocialLogin from '../../hooks/useSocialLogin';
 import SocialLoginButtons from './SocialMediaOptions';
 import ModalContainer from './modalContainer';

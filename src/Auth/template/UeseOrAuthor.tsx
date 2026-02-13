@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ModalContainer from './modalContainer';
-import Button from '../layout/Button';
+import Button from '../../Components/layout/Button';
 import { PiClockClockwise } from "react-icons/pi";
 
 interface UserTypeModalProps {

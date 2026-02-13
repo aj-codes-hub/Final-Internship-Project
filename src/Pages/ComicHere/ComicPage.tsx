@@ -176,10 +176,6 @@ const CmmicFullEP:React.FC = () =>  {
               
               <CommentBox />
 
-              <input type='text'
-                     placeholder='Comment...'
-                     className='text-[#536471]  text-[16px] absolute bottom-0 left-0 rounded-full border border-[#536471] px-[25px] py-[16px] w-full font-semibold'>
-              </input>
             </div>
 
           </div>

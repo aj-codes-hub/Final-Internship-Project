@@ -39,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({
         md:text-[13px] md:px-[20px] md:py-[6px]
         lg:text-[14px] lg:px-[32px] lg:py-[8px]
         xl:text-[15px] xl:px-[46px] xl:py-[11px]
-        2xl:text-[20px] 2xl:px-[56px] 2xl:py-[15px]
+        2xl:text-[20px] 2xl:px-[56px] 2xl:py-[14px]
         flex items-center justify-center gap-2
         ${disabled || loading ? 'opacity-50 cursor-not-allowed hover:opacity-50' : ''}
         ${className}
@@ -82,6 +82,7 @@ const Button: React.FC<ButtonProps> = ({
           )}
         </>
       )}
+      
     </button>
   );
 };

@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../Components/layout/Header/header'
-import LoginModal from '../Components/template/LoginModal'
-import SignupModal from '../Components/template/SignUpModal'
-import UserTypeModal from '../Components/template/UeseOrAuthor'
-import AboutYourselfModal from '../Components/template/AboutYourselfModal'
-import UploadProfilePictureModal from '../Components/template/UploadProfilePictureModal' 
-import UploadProfileCoverModal from '../Components/template/UploadProfileCoverModal'
-import SignupSuccessModal from '../Components/template/SignupSuccessModal' 
+import LoginModal from '../Auth/template/LoginModal'
+import SignupModal from '../Auth/template/SignUpModal'
+import UserTypeModal from '../Auth/template/UeseOrAuthor'
+import AboutYourselfModal from '../Auth/template/AboutYourselfModal'
+import UploadProfilePictureModal from '../Auth/template/UploadProfilePictureModal' 
+import UploadProfileCoverModal from '../Auth/template/UploadProfileCoverModal'
+import SignupSuccessModal from '../Auth/template/SignupSuccessModal' 
 
 const HeaderAndNav:React.FC = () => {
     const [activeModal, setActiveModal] = useState<'none' | 'login' | 'signup' | 'userType' | 'aboutYourself' | 'profilePicture' | 'profileCover' | 'signupSuccess'>('none');
@@ -110,10 +110,21 @@ const HeaderAndNav:React.FC = () => {
       alert(`🎉 Welcome to StageComics! Your ${userType === 'author' ? 'Author' : 'User'} account is ready.`);
     }, 500);
   };
+
+ const [currentUser, setCurrentUser] = useState(null);
+
+ useEffect(() =>{
+    const userData = localStorage.getItem('currentUser');
+    if(userData){
+      setCurrentUser(JSON.parse(userData))
+    }
+ },[])
+
+
   return (
     <div>
          {/* Header */}
-      <Header onClick={openLoginModal} />
+      <Header onClick={openLoginModal} currentUser={currentUser}/>
 
       {/* 🔵 LOGIN MODAL */}
       {activeModal === 'login' && (
@@ -121,8 +132,9 @@ const HeaderAndNav:React.FC = () => {
           onClose={closeAllModals} 
           isOpen={true}
           onLoginSuccess={(userData) => {
-            console.log('✅ Login successful:', userData);
-            closeAllModals();
+          console.log('✅ Login successful:', userData);
+          setCurrentUser(userData)
+          closeAllModals();
           }}
           onSwitchToSignup={handleSwitchToSignup}
         />

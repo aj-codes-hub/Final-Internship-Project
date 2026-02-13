@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Input from './Input';
-import Button from '../layout/Button';
+import Button from '../../Components/layout/Button';
 import useSocialLogin from '../../hooks/useSocialLogin';
 import SocialLoginButtons from './SocialMediaOptions';
 import ModalContainer from './modalContainer';
+import { MockAutherData } from './../../MockData/AutherData'
+import { useNavigate } from 'react-router-dom';
+
+
 
 interface LoginModalProps {
   onLoginSuccess?: (userData: any) => void;
@@ -30,21 +34,6 @@ const LoginModal: React.FC<LoginModalProps> = ({
   // Field-level errors
   const [emailError, setEmailError] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
-
-  // Mock login function
-  const mockLogin = (email: string, password: string) => {
-    const mockUsers = [
-      { email: 'user@example.com', password: 'password123', name: 'John Doe' },
-      { email: 'test@gmail.com', password: 'test123', name: 'Test User' },
-      { email: 'admin@example.com', password: 'admin123', name: 'Admin User' },
-    ];
-    
-    const user = mockUsers.find(
-      user => user.email === email && user.password === password
-    );
-    
-    return user ? { success: true, user } : { success: false, error: 'Invalid email or password' };
-  };
 
   // Validate email field
   const validateEmail = (email: string): boolean => {
@@ -119,6 +108,8 @@ const LoginModal: React.FC<LoginModalProps> = ({
     setActiveProvider(null);
   };
 
+  const navigate = useNavigate()
+
   // Handle email/password login
   const handleEmailLogin = () => {
     // Reset errors
@@ -135,28 +126,48 @@ const LoginModal: React.FC<LoginModalProps> = ({
     setIsLoggingIn(true);
     
     setTimeout(() => {
-      const result = mockLogin(email, password);
+      const author = MockAutherData.find(
+        a => a.email === email && a.password === password
+      );
       
-      if (result.success) {
+      if (!author) {
+         setEmailError("invalid email or password");
+         setPasswordError("invalid email or password");
+         setLoginError("invalid email or password");
+         setIsLoggingIn(false);
+         return;
+        };
+
         const userData = {
-          id: Date.now(),
-          name: result.user?.name || 'User',
-          email: email,
-          token: `mock-token-${Date.now()}`
+          name:author?.name,
+          username:author?.username,
+          email:author?.email,
+          password:author?.password,
+          profileImg:author?.profileImg,
+          coverPhoto:author?.coverPhoto,
+          phoneNumber:author?.phoneNumber,
+          country:author?.country,
+          city:author?.city,
+          role: author?.role,
+          biography:author?.biography,
+          token: `mock-token-${author.username}`
         };
         
-        localStorage.setItem('user', JSON.stringify(userData));
-        localStorage.setItem('token', userData.token);
+        localStorage.setItem("currentUser", JSON.stringify(userData));
+        localStorage.setItem("token", userData.token);
+        
         onLoginSuccess?.(userData);
         onClose();
-        alert(`Welcome ${userData.name}!`);
-      } else {
-        setLoginError(result.error || 'Invalid email or password');
-        // Mark both fields as invalid
-        setEmailError('Invalid email or password');
-        setPasswordError('Invalid email or password');
-      }
-      
+        alert(`welcome ${userData.name}!`)
+
+         if(userData?.role === "author" ) {
+               navigate('/author-dashboard')
+             }
+
+          if(userData?.role === "user" ) {
+            navigate('/')
+          }
+   
       setIsLoggingIn(false);
     }, 1000);
   };

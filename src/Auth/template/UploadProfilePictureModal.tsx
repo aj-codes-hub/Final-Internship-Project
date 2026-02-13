@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import ModalContainer from './modalContainer';
-import Button from '../layout/Button';
+import Button from '../../Components/layout/Button';
 import { PiClockClockwise } from "react-icons/pi";
 
-
-interface UploadProfileCoverModalProps {
+interface UploadProfilePictureModalProps {
   isOpen: boolean;
   onClose: () => void;
   onContinue: () => void;
   onSkip: () => void;
 }
 
-const UploadProfileCoverModal: React.FC<UploadProfileCoverModalProps> = ({ 
+const UploadProfilePictureModal: React.FC<UploadProfilePictureModalProps> = ({ 
   isOpen, 
   onClose, 
   onContinue,
@@ -36,23 +35,23 @@ const UploadProfileCoverModal: React.FC<UploadProfileCoverModalProps> = ({
 
   const handleModalContinue = () => {
     if (selectedFile) {
-      console.log('🖼️ Cover photo uploaded:', selectedFile);
+      console.log('📸 Profile picture uploaded:', selectedFile);
     }
     onContinue();
   };
 
   return (
     <ModalContainer onClose={onClose}>
-      <div className='flex sm:h-[712px] h-[582px] xl:w-[970px] lg:w-[870px] md:w-[650px] sm:w-[570px] w-[94vw] sm:px-[48px] px-[16px] py-[64px]'>
+      <div className='flex h-[712px] xl:w-[970px] lg:w-[870px] md:w-[650px] sm:w-[570px] w-[94vw] sm:px-[48px] px-[16px] py-[64px]'>
         <div className='relative w-full'>
           {/* Header */}
           <div className="flex justify-between items-start mb-[32px]">
             <div>
-              <h1 className='sm:text-[25px] text-[22px] text-white sm:mb-[8px] mb-[6px]'>
-                Upload profile Cover
+               <h1 className='sm:text-[25px] text-[22px] text-white sm:mb-[8px] mb-[6px]'>
+                Upload profile picture
               </h1>
               <p className='sm:text-[16px] text-[14px] text-[#5C6272] font-medium'>
-                Upload a file from your device. Image should at least 1920px x 393px.
+               Upload a file from your device. Image should be square, at least 184px x 184px.
               </p>
             </div>
           </div>
@@ -82,16 +81,50 @@ const UploadProfileCoverModal: React.FC<UploadProfileCoverModalProps> = ({
               )}
             </div>
 
-            {/* Cover Preview Container */}
-            <div className="flex flex-col items-center">
-              <div className={`w-full h-[150px] rounded-[20px] overflow-hidden bg-[#040914] flex items-center justify-center`}>
-                {previewUrl ? (
-                  <img 
-                    src={previewUrl} 
-                    alt="Cover preview" 
-                    className="w-full h-full object-cover"
-                  />
-                ) : "" }
+            <div className="flex items-end gap-[16px]">
+              {/* Large Preview */}
+              <div className="flex flex-col items-center">
+                <div className={`sm:w-[150px] sm:h-[150px] w-[140px] h-[140px] overflow-hidden bg-[#040914] flex items-center justify-center`}>
+                  {previewUrl ? (
+                    <img 
+                      src={previewUrl} 
+                      alt="Profile preview" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-[#5C6272] text-sm">152px</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Medium Preview */}
+              <div className="flex flex-col items-center">
+                <div className={`sm:w-[100px] w-[90px] sm:h-[100px] h-[90px] overflow-hidden bg-[#2C313D] flex items-center justify-center`}>
+                  {previewUrl ? (
+                    <img 
+                      src={previewUrl} 
+                      alt="Profile preview" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-[#5C6272] text-sm">100px</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Small Preview */}
+              <div className="flex flex-col items-center">
+                <div className={`sm:w-[52px] sm:h-[52px] h-[47px] w-[47px] overflow-hidden bg-[#2C313D] flex items-center justify-center`}>
+                  {previewUrl ? (
+                    <img 
+                      src={previewUrl} 
+                      alt="Profile preview" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-[#5C6272] text-sm">52px</span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -106,7 +139,7 @@ const UploadProfileCoverModal: React.FC<UploadProfileCoverModalProps> = ({
             </button>
             
             <Button
-              title='Done'
+              title='Continue'
               onClick={handleModalContinue}
               className='bg-[#33D6FF] hover:bg-[#2bc4eb] text-[#040914] text-[20px] font-semibold transition-colors rounded-full md:w-[374px] px-8 py-3'
             />
@@ -117,4 +150,4 @@ const UploadProfileCoverModal: React.FC<UploadProfileCoverModalProps> = ({
   );
 };
 
-export default UploadProfileCoverModal;
+export default UploadProfilePictureModal;

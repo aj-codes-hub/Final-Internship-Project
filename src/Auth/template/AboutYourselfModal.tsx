@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ModalContainer from './modalContainer';
-import Button from '../layout/Button';
+import Button from '../../Components/layout/Button';
 import { PiClockClockwise } from "react-icons/pi";
-import AddSocialNetworks from '../template/AddSocialNetworks'
+import AddSocialNetworks from './AddSocialNetworks'
 import { FaCaretDown } from "react-icons/fa";
 import ReactCountryFlag from "react-country-flag";
 

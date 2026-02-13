@@ -8,6 +8,7 @@ import HeaderAndNav from './Pages/HeaderAndNav';
 import ReadComic from './Pages/ReadComic/ReadComic';
 import ScrollToTop from './hooks/NotScrolled';
 import Explore from './Pages/Explore/Explore';
+import AuthorProfilePage from './Pages/AuthorDashboard/AuthorProfilePage';
 
 
 const App:React.FC = () => {
@@ -22,6 +23,7 @@ const App:React.FC = () => {
           <Route path='/explore' element={<Explore /> } />
           <Route path="/comic" element={<CmmicFullEP /> } />
           <Route path="/read-comic/:episodeId" element={<ReadComic />} />
+          <Route path="/author-dashboard" element={<AuthorProfilePage />} />
         </Routes>
       <Footer />
     </BrowserRouter>

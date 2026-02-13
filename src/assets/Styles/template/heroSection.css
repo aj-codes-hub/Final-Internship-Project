@@ -1,59 +1,52 @@
-
-.swiper-slide-active {
+.hero-Section .swiper-slide-active {
   transform: scale(1);
   opacity: 1;
 }
 
-.swiper-slide-active > div > .card > div > .cardImg > .play-Button {
-   display: flex;
+.hero-Section .swiper-slide-active > div > .card > div > .cardImg > .play-Button {
+  display: flex;
 }
 
-.swiper-slide-prev {
-    perspective: 1200px;
+.hero-Section .swiper-slide-prev {
+  perspective: 1200px;
 }
 
-.swiper-slide-prev > div {
-    transform-style: preserve-3d;
-    transform: rotateY(190deg)  ;
-    transition:transform 0.6s ease-in-out;
-    scale: calc(0.9);
-    margin-bottom: 10px;
+.hero-Section .swiper-slide-prev > div {
+  transform-style: preserve-3d;
+  transform: rotateY(190deg);
+  transition: transform 0.6s ease-in-out;
+  scale: 0.9;
+  margin-bottom: 10px;
 }
 
-
-
-.swiper-slide-prev > div > .card > div > .cardImg {
-    left: 43px;
+.hero-Section .swiper-slide-prev > div > .card > div > .cardImg {
+  left: 43px;
 }
 
-.swiper-slide-next {
-    perspective: 1200px;
+.hero-Section .swiper-slide-next {
+  perspective: 1200px;
 }
 
-.swiper-slide-next > div {
-    transform-style: preserve-3d;
-    transform: rotateY(-10deg)  ;
-    transition:transform 0.6s ease-in-out;
-    scale: calc(0.9);
-    margin-bottom: 10px;
+.hero-Section .swiper-slide-next > div {
+  transform-style: preserve-3d;
+  transform: rotateY(-10deg);
+  transition: transform 0.6s ease-in-out;
+  scale: 0.9;
+  margin-bottom: 10px;
 }
 
-
-
-.swiper-slide-next > div > .card > div > .cardImg {
-    left: 43px;
+.hero-Section .swiper-slide-next > div > .card > div > .cardImg {
+  left: 43px;
 }
 
-.swiper-slide-prev > div > .card > div > .cardImg > .play-Button {
-   display: none;
+.hero-Section .swiper-slide-prev > div > .card > div > .cardImg > .play-Button {
+  display: none;
 }
 
-.swiper-slide-next > div > .card > div > .cardImg > .play-Button {
-   display: none;
+.hero-Section .swiper-slide-next > div > .card > div > .cardImg > .play-Button {
+  display: none;
 }
 
-.swiper-slide {
+.hero-Section .swiper-slide {
   transition: all 0.4s ease;
 }
-
-
